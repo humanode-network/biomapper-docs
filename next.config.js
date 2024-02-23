@@ -10,4 +10,5 @@ module.exports = withNextra({
   },
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  basePath: "/biomapper-docs",
 });
