@@ -48,61 +48,12 @@ For each of these functions, there is a function in `BiomapperImpl` with the sam
 
 An example flow for `isUnique` function:
 
-<table data-full-width="true">
-  <thead>
-    <tr>
-      <th width="81">step</th>
-      <th width="116">from</th>
-      <th width="118">to</th>
-      <th width="101">call type</th>
-      <th width="120">which state is used</th>
-      <th width="204">which code is executed</th>
-      <th>action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>-</td>
-      <td>Proxy</td>
-      <td>call</td>
-      <td>-</td>
-      <td>-</td>
-      <td>isUnique is called</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Proxy</td>
-      <td>Biomapper</td>
-      <td>delegate call</td>
-      <td>Proxy</td>
-      <td>Biomapper</td>
-      <td>Proxy delegates call to Biomapper</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Proxy</td>
-      <td>SwappableStorage</td>
-      <td>call</td>
-      <td>Proxy</td>
-      <td>Biomapper</td>
-      <td>Biomapper calls isUnique of SwappableStorage</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>SwappableStorage</td>
-      <td>Biomapper</td>
-      <td>delegate call</td>
-      <td>SwappableStorage</td>
-      <td>
-        Biomapper
-        <br />
-        (BiomapperImpl)
-      </td>
-      <td>SwappableStorage delegates call to BiomapperImpl</td>
-    </tr>
-  </tbody>
-</table>
+| step | from             | to               | call type     | which state is used | which code is executed    | action                                           |
+| ---- | ---------------- | ---------------- | ------------- | ------------------- | ------------------------- | ------------------------------------------------ |
+| 1    | -                | Proxy            | call          | -                   | -                         | isUnique is called                               |
+| 2    | Proxy            | Biomapper        | delegate call | Proxy               | Biomapper                 | Proxy delegates call to Biomapper                |
+| 3    | Proxy            | SwappableStorage | call          | Proxy               | Biomapper                 | Biomapper calls isUnique of SwappableStorage     |
+| 4    | SwappableStorage | Biomapper        | delegate call | SwappableStorage    | Biomapper (BiomapperImpl) | SwappableStorage delegates call to BiomapperImpl |
 
 ## BiomapperLog
 
