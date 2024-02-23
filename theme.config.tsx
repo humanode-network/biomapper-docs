@@ -5,12 +5,17 @@ import logoUrl from "./assets/logo.png";
 import faviconUrl from "./assets/favicon.png";
 
 const logo = (
-  <>
-    <Image src={logoUrl} height={36} width={36} alt="Humanode" />
-    <span>
-      Humanode Biomapper <br /> Documentation
-    </span>
-  </>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: "8px",
+    }}
+  >
+    <Image src={logoUrl} width={42} height={42} alt="Humanode" />
+    <div>Humanode Biomapper Documentation</div>
+  </div>
 );
 
 const head = (
