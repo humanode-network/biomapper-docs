@@ -6,8 +6,10 @@ import logo from "./assets/logo.png";
 const config: DocsThemeConfig = {
   logo: (
     <>
-      <Image src={logo} height={32} width={32} alt="Humanode" />
-      <span>Humanode Biomapper</span>
+      <Image src={logo} height={36} width={36} alt="Humanode" />
+      <span>
+        Humanode Biomapper <br /> Documentation
+      </span>
     </>
   ),
   project: {
