@@ -4,20 +4,40 @@ description: >-
   Humanode Biomapper.
 ---
 
+import { Steps } from "nextra/components";
+
 # User Flow
 
-## Welcome Page
+<Steps>
+### Welcome Page
 
-The first page that users will encounter is a welcome page featuring the Terms of Service and Privacy Policy. Users must agree to these terms and confirm that they are of legal age before being redirected to the `Humanode OAuth 2 Service`.
+The first page that users encounter is a welcome page featuring
+the Terms of Service and Privacy Policy.
+Users must agree to these terms and confirm that they are of legal age
+before proceeding.
 
-## OAuth 2 Flow
+### Face Scan and Liveness Check
 
-In `Humanode OAuth 2 Service` flow, users are required to validate by showing their face to the camera. After validation and agreeing to share their `Humanode Identifier` with `Humanode Biomapper`, they will be redirected back to `Humanode Biomapper`, with their identifier stored in a hashed form known as `Biotoken`.
+Users show their face to the camera. Biometric information is captured and
+sent to the CVM via an encrypted channel.
+CVM perofms liveness check and matching.
+Next, user is prompted to share their _Humanode Identifier_ with
+_Humanode Biomapper_, after which _Humanode Biomapper_ stores
+the _Humanode Identifier_ in a hashed form known as _Biotoken_
+for the duration of the session.
 
-## Signing Page
+### Signing Page
 
-The signing page allows the user to submit the transaction. The chosen EVM address and the stored `Biotoken` are sent to the `Signing Server` to obtain the signature. Following this, the user calls the `proveUniqueness` function with the `Biotoken` and the obtained signature, resulting in an on-chain record of the user's uniqueness.
+On the signig page user has to select an EVM address to link their
+_Biotoken_ with.
+User presses the button to sign the message containing the _Biotoken_ with their
+private key, and this signed message is then passed to the _Signig Server_ to
+confirm the address and _Biotoken_ ownership.
+In response, the _Signing Server_ provides an attestation signature that
+can be submitted on-chain.
+Then user signs and submits a transaction to the `Biomapper` smart contract
+containing a call to the `proveUniqueness` function with the _Biotoken_
+and the attestaion signature, resulting in an on-chain record of the user's
+uniqueness.
 
-[signing-server.md](implementation-details/signing-server.md)
-
-[proveuniqueness-call.md](implementation-details/proveuniqueness-call.md)
+</Steps>
