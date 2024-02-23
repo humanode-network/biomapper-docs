@@ -16,9 +16,5 @@
   "---Paisahg1": {
     "type": "separator"
   },
-  "interfaces": "Interfaces",
-  "---beCh2eit": {
-    "type": "separator"
-  },
-  "implementation-details": "Implementation Details"
+  "interfaces": "Interfaces"
 }
