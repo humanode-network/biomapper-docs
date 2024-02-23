@@ -1,0 +1,16 @@
+import { Callout } from "nextra/components";
+
+# Indexers
+
+<Callout type="warning">
+Humanode does not host an official indexer for the `Biomapper` data at this time.
+
+It is possible, however, to deploy your own!
+
+</Callout>
+
+It is possible to index the Biomapper events to obtain the lists of biomapped accounts for a given generation.
+
+You would have to set up something like SubQuery, The Graph, or another chain indexer capable of capturing EVM events.
+
+Use cases for such integration include, for instance, a really simple way to run a Sybil-resistant airdrop without a significant development effort - you just take a list of addresses and run the airdrop! The addresses obtained from the Biomapper are known to have passed the uniqueness check and are therefore non-Sybil, and safe for airdrop distribution.

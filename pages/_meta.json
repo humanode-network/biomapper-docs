@@ -1,1 +1,23 @@
-{}
+{
+  "index": "Overview",
+  "about": "About",
+  "contract-addresses": "Contract Addresses",
+  "user-flow": "User Flow",
+  "generations": "Generations",
+  "---1": {
+    "type": "separator"
+  },
+  "integration": "Integration",
+  "---2": {
+    "type": "separator"
+  },
+  "technical-information": "Technical information",
+  "---3": {
+    "type": "separator"
+  },
+  "interfaces": "Interfaces",
+  "---4": {
+    "type": "separator"
+  },
+  "implementation-details": "Implementation Details"
+}

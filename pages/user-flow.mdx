@@ -1,0 +1,23 @@
+---
+description: >-
+  An overall flow for a user to be recognized as a unique human being by
+  Humanode Biomapper.
+---
+
+# User Flow
+
+## Welcome Page
+
+The first page that users will encounter is a welcome page featuring the Terms of Service and Privacy Policy. Users must agree to these terms and confirm that they are of legal age before being redirected to the `Humanode OAuth 2 Service`.
+
+## OAuth 2 Flow
+
+In `Humanode OAuth 2 Service` flow, users are required to validate by showing their face to the camera. After validation and agreeing to share their `Humanode Identifier` with `Humanode Biomapper`, they will be redirected back to `Humanode Biomapper`, with their identifier stored in a hashed form known as `Biotoken`.
+
+## Signing Page
+
+The signing page allows the user to submit the transaction. The chosen EVM address and the stored `Biotoken` are sent to the `Signing Server` to obtain the signature. Following this, the user calls the `proveUniqueness` function with the `Biotoken` and the obtained signature, resulting in an on-chain record of the user's uniqueness.
+
+[signing-server.md](implementation-details/signing-server.md)
+
+[proveuniqueness-call.md](implementation-details/proveuniqueness-call.md)

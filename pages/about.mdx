@@ -1,0 +1,31 @@
+---
+description: What is Humanode Biomapper
+---
+
+import { Callout } from "nextra/components";
+
+# About
+
+## Humanode Biomapper
+
+Humanode Private On-chain Biomapping a.k.a. Biomapper allows users to map biometric data to their EVM account address. It consists of on-chain and off-chain components. The on-chain part focuses on ensuring the uniqueness of both biometrics and the EVM address, while the off-chain part manages biometrics and general flow.
+
+## Biometrics
+
+Biometric data is handled by Humanode OAuth 2 Service. It uses CVM to check, store, and search for already stored biometrics.
+
+<Callout type="info" emoji="ℹ️">
+  The actual biometric data never leaves the CVM.
+</Callout>
+
+For all other functions, biometrics are uniquely identified by a `Biotoken` assigned by Humanode OAuth 2 Service.
+
+## On-chain components
+
+All smart contracts are described in
+
+[smart-contracts-layout.md](implementation-details/smart-contracts-layout.md)
+
+The on-chain mechanism of validating uniqueness is described in
+
+[proveuniqueness-call.md](implementation-details/proveuniqueness-call.md)

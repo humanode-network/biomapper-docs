@@ -1,0 +1,119 @@
+---
+description: Smart contracts description
+---
+
+import { Callout } from "nextra/components";
+
+# Smart Contracts Layout
+
+Humanode Biomapper on-chain part consists of 5 smart contracts:
+
+- Biomapper
+- Proxy for Biomapper
+- SwappableStorage
+- BiomapperLog
+- Proxy for BiomapperLog
+
+## Proxy
+
+Proxy contracts that are used in Humanode Biomapper are `TransparentUpgradeableProxy` by `OpenZeppelin`.
+
+## Biomapper
+
+Biomapper contract consists of 2 main parts: a `Biomapper` contract itself and a `BiomapperImpl` contract. The `Biomapper` contract is derived from `BiomapperImpl`.
+
+### Biomapper part
+
+`Biomapper` part contract contains 2 types of functions: privileged functions to maintain `SwappableStorage` and 3 unrestricted external functions to check and prove uniqueness.
+
+These 3 functions are:
+
+| function        | interface        |
+| --------------- | ---------------- |
+| isUnique        | ICheckUniqueness |
+| getPrice        | IProveUniqueness |
+| proveUniqueness | IProveUniqueness |
+
+For each of these functions, there is a function in `BiomapperImpl` with the same name that contains actual code. All 3 of these functions in `Biomapper` part make a call to `SwappableStorage`.
+
+### BiomapperImpl part
+
+`BiomapperImpl` part describes the state and contains functions that can access that state. Each function is restricted to delegate calls only so `BiomapperImpl` part has no state, only code.
+
+## SwappableStorage
+
+`SwappableStorage` is a universal contract that upon receiving any call will make a delegete call to a configured contract. This contract can receive calls from a specified contract only.
+
+#### Example flow
+
+An example flow for `isUnique` function:
+
+<table data-full-width="true">
+  <thead>
+    <tr>
+      <th width="81">step</th>
+      <th width="116">from</th>
+      <th width="118">to</th>
+      <th width="101">call type</th>
+      <th width="120">which state is used</th>
+      <th width="204">which code is executed</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>-</td>
+      <td>Proxy</td>
+      <td>call</td>
+      <td>-</td>
+      <td>-</td>
+      <td>isUnique is called</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Proxy</td>
+      <td>Biomapper</td>
+      <td>delegate call</td>
+      <td>Proxy</td>
+      <td>Biomapper</td>
+      <td>Proxy delegates call to Biomapper</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Proxy</td>
+      <td>SwappableStorage</td>
+      <td>call</td>
+      <td>Proxy</td>
+      <td>Biomapper</td>
+      <td>Biomapper calls isUnique of SwappableStorage</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>SwappableStorage</td>
+      <td>Biomapper</td>
+      <td>delegate call</td>
+      <td>SwappableStorage</td>
+      <td>
+        Biomapper
+        <br />
+        (BiomapperImpl)
+      </td>
+      <td>SwappableStorage delegates call to BiomapperImpl</td>
+    </tr>
+  </tbody>
+</table>
+
+## BiomapperLog
+
+`BiomapperLog` contract implements 2 interfaces:
+
+### IBiomapperLogRead
+
+`IBiomapperLogRead` interface is public and contains `view` functions only.
+
+[Broken link](broken-reference)
+
+### IBiomapperLogWrite
+
+`IBiomapperLogWrite` interface contains functions that are restricted to be called by `Biomapper` Proxy contract.

@@ -1,0 +1,21 @@
+import { Callout } from "nextra/components";
+
+# Bridges
+
+<Callout type="warning">
+General-purpose transaction bridges are not currently available.
+
+Humanode team is actively working with partners to set up bridging with other networks to enable more interoperability and use-cases, stay tuned.
+
+</Callout>
+
+Cross-network bridges can be utilized to pass the uniqueness check results from the Humanode chain to other chains, enabling Sybil-resistant use cases everywhere.
+
+Typically this requires a view-only call on the Humanode chain, intermediary bridge operations, and then a transaction containing the resulting data on the other chain. The latter two would typically incur a cost in the form of bridge / destination chain fee.
+
+<Callout type="error">
+It is not possible to create biomapping on the bridged chains! To create a biomapping, you would technically have to issue a transaction to the `Biomapper` contract on the Humanode chain.
+
+This means that you are required to have HMND tokens to pay for the network fee for the transaction on the Humanode network. We are working on facilitating the process of submitting transactions with assisted funds porting from other bridged chains in our Biomapper UI to reduce the friction of creating a biomapping.
+
+</Callout>
