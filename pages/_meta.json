@@ -1,5 +1,10 @@
 {
-  "index": "Overview",
+  "index": {
+    "title": "Overview",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "about": "About",
   "contract-addresses": "Contract Addresses",
   "user-flow": "User Flow",
