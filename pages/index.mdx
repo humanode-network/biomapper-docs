@@ -1,62 +1,38 @@
 import banner from "../assets/banner.png";
 import Banner from "../components/Banner";
+import { Cards, Card } from "nextra/components";
 
 <Banner src={banner} />
 
-# Overview
-
 ## About Humanode Biomapper
 
-[about.md](about.md)
+Generic information about what Biomapper is and how it works.
 
-[contract-addresses.md](contract-addresses.md)
+<Cards>
+  <Card title="About" href="about" />
+  <Card title="Contract Addresses" href="contract-addresses" />
+  <Card title="User Flow" href="user-flow" />
+  <Card title="Generations" href="generations" />
+</Cards>
 
 ## How to integrate
 
-Currently, there are 2 smart contracts that you can integrate with.
+Integration instructions.
 
-### Integration with Biomapper contract
-
-This method is suitable for checking the user's uniqueness in the present moment.
-
-[Broken link](broken-reference)
-
-[Broken link](broken-reference)
-
-### Integration with BiomapperLog contract
-
-`BiomapperLog` smart contract providing logging of all `Biometric generations` and `Biomaps`.
-
-[generations.md](generations.md)
-
-Simple integration with `BiomapperLog` should be enough for the most cases
-
-[Broken link](broken-reference)
-
-[Broken link](broken-reference)
-
-[Broken link](broken-reference)
-
-## How it works
-
-### Off-chain
-
-[generations.md](generations.md)
-
-[signing-server.md](implementation-details/signing-server.md)
-
-### On-chain
-
-[proveuniqueness-call.md](implementation-details/proveuniqueness-call.md)
-
-[smart-contracts-layout.md](implementation-details/smart-contracts-layout.md)
+<Cards>
+  <Card title="Biomapper SDK" href="integration/biomapper-sdk" />
+  <Card
+    title="Official Biomapper HTTP API"
+    href="integration/official-biomapper-http-api"
+  />
+  <Card title="Indexers" href="integration/indexers" />
+  <Card title="Bridges" href="integration/bridges" />
+</Cards>
 
 ## Interfaces
 
-`ICheckUniqueness` is the interface of `Biomapper` contract
+Solidity API to use.
 
-[Broken link](broken-reference)
-
-`IBiomapperLogRead` is the interface of `BiomapperLog` contract
-
-[Broken link](broken-reference)
+<Cards>
+  <Card title="See interfaces at Biomapper SDK Docs" href="" />
+</Cards>
