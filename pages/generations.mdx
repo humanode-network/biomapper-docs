@@ -2,7 +2,7 @@
 description: This chapter discusses what generations are and the generation change flow.
 ---
 
-import { Callout } from "nextra/components";
+import { Callout, Steps } from "nextra/components";
 
 # Generations
 
@@ -31,6 +31,8 @@ Users can only do mapping in the current generation, but the mappings in the pre
 
 ## Generation Change Flow
 
+<Steps>
+
 ### CVM
 
 The whole instance gets deleted and a new one gets deployed. All the data in the old instance are wiped.
@@ -49,10 +51,10 @@ The reason behind updating the signer server is to invalidate previous generatio
 
 `Biomapper` contract does not operate with the concept of Biometric generations, but rather always works in a current generation.
 
-On each generation, the following steps are taken:
+On each generation, the following operations are conducted:
 
 1. a new `SwappableStorage` contract is deployed
-2. `SwappableStorage` contract is initialized with a new Signer Server address and potentially a new price
+2. `SwappableStorage` contract is initialized with a new _Signer Server_ address and potentially a new price
 3. current `SwappableStorage` address gets set to a new `SwappableStorage` address
 4. `Biomapper` contract invokes the `initGeneration` function of `BiomapperLog` contract
 
@@ -60,10 +62,18 @@ On each generation, the following steps are taken:
 
 Upon receiving `initGeneration` call from the `Biomapper` contract, `BiomapperLog` initializes a new `Generation` struct and adds it into the generations doubly linked list.
 
-## Preparation and actual generation change
+</Steps>
 
-The actual generation change encompasses steps 3 and 4 of the Biomapper contract, along with a call to the BiomapperLog contract. These actions are bundled into a single transaction.
+#### Preparation and moment of the generation change
 
-The preparation stage encompasses all other aspects, including CVM, signer server, and swappable storage. These steps, especially CVM deployment, can be time-consuming.
+The moment of generation change for the purpuses of the on chain integration is
+considrented to be the moment when the `initGeneration` transaction from the
+step 3 is included on chain.
+Operatons 3-4 are typically bundled into a single transaction.
 
-This division is primarily necessary to minimize the time window required for the update.
+The preparation stage encompasses all other aspects including CVM, signer server,
+and swappable storage.
+These steps, especially CVM deployment, can be time-consuming.
+
+This division is primarily necessary to minimize the time window required for
+the update.
