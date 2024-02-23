@@ -1,6 +1,5 @@
 {
   "prettier.enable": true,
-  "prettier.prettierPath": "./node_modules/prettier/index.js",
   "typescript.tsdk": "node_modules/typescript/lib",
   "package-json-upgrade.ignoreVersions": {
     "@types/node": ">20"
