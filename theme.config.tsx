@@ -1,17 +1,27 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 import Image from "next/image";
-import logo from "./assets/logo.png";
+import logoUrl from "./assets/logo.png";
+import faviconUrl from "./assets/favicon.png";
+
+const logo = (
+  <>
+    <Image src={logoUrl} height={36} width={36} alt="Humanode" />
+    <span>
+      Humanode Biomapper <br /> Documentation
+    </span>
+  </>
+);
+
+const head = (
+  <>
+    <link rel="icon" href={faviconUrl.src} type="image/png" />
+  </>
+);
 
 const config: DocsThemeConfig = {
-  logo: (
-    <>
-      <Image src={logo} height={36} width={36} alt="Humanode" />
-      <span>
-        Humanode Biomapper <br /> Documentation
-      </span>
-    </>
-  ),
+  logo,
+  head,
   project: {
     link: "https://github.com/humanode-network/biomapper-docs",
   },
