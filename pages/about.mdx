@@ -5,28 +5,20 @@ description: What is Humanode Biomapper
 import { Callout } from "nextra/components";
 import Sub from "../components/Sub";
 
-# About
+# About Humanode Biomapper
 
-<Sub>What is Humanode Biomapper</Sub>
+## What is Humanode Biomapper
 
-## Humanode Biomapper
+Biomapper is an on-chain private facial recognition tool that ensures that a person verified only one Ethereum-compatible address in the Dapp. It was created as a response to Sybil attacks - attempts to trick the rating systems in web3 using multiple accounts and automated bots.
 
-Humanode Private On-chain Biomapping a.k.a. Biomapper allows users to map biometric data to their EVM account address. It consists of on-chain and off-chain components. The on-chain part focuses on ensuring the uniqueness of both biometrics and the EVM address, while the off-chain part manages biometrics and general flow.
+### Simplicity
 
-## Biometrics
+All a user has to do is to accept the terms and privacy policy, go through 15 seconds of facial recognition and then execute the smart contract, paying a small fee, usually under 1$ in the network’s tokens.
 
-Biometric data is handled by Humanode OAuth 2 Service. It uses CVM to check, store, and search for already stored biometrics.
+### Privacy
 
-<Callout type="info">The actual biometric data never leaves the CVM.</Callout>
+Unlike KYC solutions, the user doesn't need to share any documents or personal data. The original video feed/photo never leaves the user’s device. Anonymised biometric data is encrypted locally on the device, and then sent to the Confidential Virtual Machine (CVM) which is able to compare the new user against all who registered previously. No one has access to the data inside the CVM ensuring privacy of anonymised facial data.
 
-For all other functions, biometrics are uniquely identified by a `Biotoken` assigned by Humanode OAuth 2 Service.
+### Accuracy
 
-## On-chain components
-
-All smart contracts are described in
-
-[smart-contracts-layout.md](implementation-details/smart-contracts-layout.md)
-
-The on-chain mechanism of validating uniqueness is described in
-
-[proveuniqueness-call.md](implementation-details/proveuniqueness-call.md)
+Humanode has unmatched accuracy levels. The false acceptance rate (FAR) of 1-to-n search and matching operations is 1 in 125 million. There are over 60 machine learning and other types of modules dedicated to liveness detection which make sure that the video feed of the user is real, not a deep fake or injected video, with the false acceptance rate of 1 in 100 thousand. Currently the bounty for a successful attempt of a Sybil attack is $600,000 which no one was able to claim in the last 3 years.
