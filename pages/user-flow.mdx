@@ -20,7 +20,7 @@ before proceeding.
 
 Users show their face to the camera. Biometric information is captured and
 sent to the CVM via an encrypted channel.
-CVM performs liveness check and matchinggp against its local state.
+CVM performs liveness check and matching gp(todo!) against its local state.
 Next, user is prompted to share their _Humanode Identifier_ with
 _Humanode Biomapper_, after which _Humanode Biomapper_ stores
 the _Humanode Identifier_ in a hashed form known as _Biotoken_
@@ -31,13 +31,13 @@ for the duration of the session.
 On the signig page user has to select an EVM address to link their
 _Biotoken_ with.
 User presses the button to sign the message containing the _Biotoken_ with their
-private key, and this signed message is then passed to the _Signig Server_ to
+private key, and this signed message is then passed to the _Signing Server_ to
 confirm the address and _Biotoken_ ownership.
 In response, the _Signing Server_ provides an attestation signature that
 can be submitted on-chain.
 Then user signs and submits a transaction to the `Biomapper` smart contract
 containing a call to the `proveUniqueness` function with the _Biotoken_
-and the attestaion signature, resulting in an on-chain record of the user's
+and the attestation signature, resulting in an on-chain record of the user's
 uniqueness.
 
 </Steps>
