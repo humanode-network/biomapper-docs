@@ -35,6 +35,11 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase:
     "https://github.com/humanode-network/biomapper-docs/tree/master",
+  useNextSeoProps() {
+    return {
+      titleTemplate: "Biomapper SDK Documentation",
+    };
+  },
   footer: {
     text: "Humanode Biomapper Documentation",
   },
