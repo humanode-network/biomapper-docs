@@ -3,6 +3,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 import Image from "next/image";
 import logoUrl from "./assets/logo.png";
 import faviconUrl from "./assets/favicon.png";
+import { useRouter } from "next/router";
 
 const logo = (
   <div
@@ -36,8 +37,10 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     "https://github.com/humanode-network/biomapper-docs/tree/master",
   useNextSeoProps() {
+    const { asPath } = useRouter();
+    const title = "Humanode Biomapper Docs";
     return {
-      titleTemplate: "%s - Humanode Biomapper Documentation",
+      titleTemplate: asPath === "/" ? title : `%s - ${title}`,
     };
   },
   footer: {
