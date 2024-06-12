@@ -42,7 +42,7 @@ jobs:
       - run: yarn install --immutable
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - run: yarn build
 
