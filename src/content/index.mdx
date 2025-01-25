@@ -1,6 +1,6 @@
 import banner from "../assets/banner.png";
 import Banner from "../components/Banner";
-import { Cards, Card } from "nextra/components";
+import { Cards } from "nextra/components";
 
 <Banner src={banner} />
 
@@ -9,10 +9,10 @@ import { Cards, Card } from "nextra/components";
 Generic information about what Biomapper is and how it works.
 
 <Cards>
-  <Card title="About" href="about" />
-  <Card title="Contract Addresses" href="contract-addresses" />
-  <Card title="User Flow" href="user-flow" />
-  <Card title="Generations" href="generations" />
+  <Cards.Card title="About" href="about" />
+  <Cards.Card title="Contract Addresses" href="contract-addresses" />
+  <Cards.Card title="User Flow" href="user-flow" />
+  <Cards.Card title="Generations" href="generations" />
 </Cards>
 
 ## Showcase
@@ -20,7 +20,7 @@ Generic information about what Biomapper is and how it works.
 A showcase of integartions with Humanode Biomapper.
 
 <Cards>
-  <Card title="Showcase" href="showcase" />
+  <Cards.Card title="Showcase" href="showcase" />
 </Cards>
 
 ## How to integrate
@@ -28,13 +28,13 @@ A showcase of integartions with Humanode Biomapper.
 Integration instructions.
 
 <Cards>
-  <Card title="Biomapper SDK" href="integration/biomapper-sdk" />
-  <Card
+  <Cards.Card title="Biomapper SDK" href="integration/biomapper-sdk" />
+  <Cards.Card
     title="Official Biomapper HTTP API"
     href="integration/official-biomapper-http-api"
   />
-  <Card title="Indexers" href="integration/indexers" />
-  <Card title="Bridges" href="integration/bridges" />
+  <Cards.Card title="Indexers" href="integration/indexers" />
+  <Cards.Card title="Bridges" href="integration/bridges" />
 </Cards>
 
 ## Interfaces
@@ -42,7 +42,7 @@ Integration instructions.
 Solidity APIs to use.
 
 <Cards>
-  <Card
+  <Cards.Card
     title="Interfaces at Biomapper SDK Docs ↗"
     href="https://link.humanode.io/docs/biomapper-sdk"
   />

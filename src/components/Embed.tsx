@@ -1,14 +1,14 @@
-import { Card, Cards } from "nextra/components";
+import { Cards } from "nextra/components";
 
 type Props = {
   title: string;
   href: string;
-  icon: React.ReactNode;
+  icon: React.ReactElement;
 };
 
 const Embed: React.FC<Props> = ({ href, title, icon }) => (
   <Cards>
-    <Card title={title} href={href} icon={icon} children={null} />
+    <Cards.Card title={title} href={href} icon={icon} children={null} />
   </Cards>
 );
 

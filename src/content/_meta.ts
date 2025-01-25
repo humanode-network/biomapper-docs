@@ -23,6 +23,5 @@ export default {
   interfaces: {
     title: "Interfaces ↗",
     href: "https://link.humanode.io/docs/biomapper-sdk",
-    newWindow: true,
   },
 };
