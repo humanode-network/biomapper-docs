@@ -4,6 +4,7 @@
 node_modules
 /.next
 /out
+/_pagefind
 
 # Yarn
 .yarn/*
