@@ -1,0 +1,10 @@
+:3000
+
+encode zstd gzip
+
+root out
+file_server
+
+handle_path /biomapper-docs/* {
+	try_files {path} {path}/index.html /404.html
+}
