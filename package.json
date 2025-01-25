@@ -1,5 +1,6 @@
 {
   "name": "biomapper-docs",
+  "type": "module",
   "packageManager": "yarn@4.6.0",
   "scripts": {
     "dev": "next",
