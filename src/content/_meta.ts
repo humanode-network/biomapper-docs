@@ -21,7 +21,7 @@ export default {
     type: "separator",
   },
   interfaces: {
-    title: "Interfaces ↗",
+    title: "Interfaces",
     href: "https://link.humanode.io/docs/biomapper-sdk",
   },
 };
