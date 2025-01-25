@@ -6,6 +6,7 @@ import "nextra-theme-docs/style.css";
 import Image from "next/image";
 import FaviconImage from "../assets/favicon.png";
 import LogoImage from "../assets/logo.png";
+import { Metadata } from "next";
 
 const logo = (
   <div
@@ -21,15 +22,12 @@ const logo = (
   </div>
 );
 
-export const metadata = {};
-
-// useNextSeoProps() {
-//   const { asPath } = useRouter();
-//   const title = "Humanode Biomapper Docs";
-//   return {
-//     titleTemplate: asPath === "/" ? title : `%s - ${title}`,
-//   };
-// },
+export const metadata: Metadata = {
+  title: {
+    default: "Humanode Biomapper Docs",
+    template: "%s - Humanode Biomapper Docs",
+  },
+};
 
 const navbar = (
   <Navbar
