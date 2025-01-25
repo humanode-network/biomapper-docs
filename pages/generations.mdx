@@ -1,5 +1,6 @@
 ---
-description: This chapter discusses what generations are and the generation change flow.
+description: >-
+  This chapter discusses what generations are and the generation change flow.
 ---
 
 import { Callout, Steps } from "nextra/components";
@@ -8,7 +9,12 @@ import { Callout, Steps } from "nextra/components";
 
 ## Technical Reasons
 
-The actual bioverification process for Biomapper is managed by a dedicated Confidential Virtual Machine (CVM). Similar to other Humanode products, these CVMs require periodic resets. Biometric data cannot be extracted from a CVM, and the CVM's code cannot be modified either. Therefore, the only method for updating the biometric engine involves discarding the current CVM (along with all biometric data) and initiating a new one.
+The actual bioverification process for Biomapper is managed by a dedicated
+Confidential Virtual Machine (CVM). Similar to other Humanode products, these
+CVMs require periodic resets. Biometric data cannot be extracted from a CVM,
+and the CVM's code cannot be modified either.
+Therefore, the only method for updating the biometric engine involves discarding
+the current CVM (along with all biometric data) and initiating a new one.
 
 <Callout type="info">
   From a user experience standpoint, this process has evident drawbacks - users
@@ -19,15 +25,33 @@ The actual bioverification process for Biomapper is managed by a dedicated Confi
 
 ## What is a Generation in the context of Biomapper
 
-Generation is the context in which the uniqueness statement that the contract provides is valid.
+Generation is the context in which the uniqueness statement that the contract
+provides is valid.
 
-It can be thought of as an interval of blocks, in which it is certain that a given person can only claim to have a single EVM address or in other words - that a given EVM address has a unique human behind it. This implies that a single human can not have more than one EVM address indicated as unique within a single generation.
+It can be thought of as an interval of blocks, in which it is certain that
+a given person can only claim to have a single EVM address or in other words -
+that a given EVM address has a unique human behind it.
+This implies that a single human can not have more than one EVM address
+indicated as unique within a single generation.
 
-Every person that proves the uniqueness of their address will have it biomapped until the end of the generation they biomapped that address in. When the new generation starts, all prior mappings (for all users!) are no longer considered in the new generation. In the new generation, users are free to redo the biomapping with the same address they used in the old generation, or use a different EVM address - but they are only able to biomap a single address per generation.
+Every person that proves the uniqueness of their address will have it biomapped
+until the end of the generation they biomapped that address in.
+When the new generation starts, all prior mappings (for all users!) are
+no longer considered in the new generation.
+In the new generation, users are free to redo the biomapping with the same
+address they used in the old generation, or use a different EVM address -
+but they are only able to biomap a single address per generation.
 
-The evaluation of the EVM address uniqueness therefore can only be sensible within a generation. Typically, you'd want to evaluate the uniqueness for the current generation - i.e. the generation that is the one that users are currently biomapping to.
+The evaluation of the EVM address uniqueness therefore can only be sensible
+within a generation.
+Typically, you'd want to evaluate the uniqueness for the current generation -
+i.e. the generation that is the one that users are currently biomapping to.
 
-Users can only do mapping in the current generation, but the mappings in the previous generations are also kept for bookkeeping reasons. This is useful for applications that need to account for a prolonged historical log of the uniqueness status of a given EVM address - like staking rewards calculations we have in our biostaker.
+Users can only do mapping in the current generation, but the mappings in
+the previous generations are also kept for bookkeeping reasons.
+This is useful for applications that need to account for a prolonged historical
+log of the uniqueness status of a given EVM address - like staking rewards
+calculations we have in our biostaker.
 
 ## Generation Change Flow
 
@@ -35,32 +59,45 @@ Users can only do mapping in the current generation, but the mappings in the pre
 
 ### CVM
 
-The whole instance gets deleted and a new one gets deployed. All the data in the old instance are wiped.
+The whole instance gets deleted and a new one gets deployed.
+All the data in the old instance are wiped.
 
 ### Signer Server
 
-In order to update the signer server, a new private signer server key is generated. Signer Server address is derived from this key. This address will not be used as a wallet address on-chain, but rather to validate the signature.
+In order to update the signer server, a new private signer server key is
+generated. Signer Server address is derived from this key.
+This address will not be used as a wallet address on-chain, but rather
+to validate the signature.
 
-Being an off-chain part of Humanode Biomapper, signer server gets redeployed with new parameters, such as signer server private key and CVM instance parameters.
+Being an off-chain part of Humanode Biomapper, signer server gets redeployed
+with new parameters, such as signer server private key and CVM instance
+parameters.
 
-The reason behind updating the signer server is to invalidate previous generation signatures to prevent potential Sybil attacks.
+The reason behind updating the signer server is to invalidate previous
+generation signatures to prevent potential Sybil attacks.
 
 ### Smart Contracts
 
 #### **`Biomapper` contract**
 
-`Biomapper` contract does not operate with the concept of Biometric generations, but rather always works within a current generation.
+`Biomapper` contract does not operate with the concept of Biometric generations,
+but rather always works within a current generation.
 
 On each generation, the following operations are conducted:
 
 1. a new `SwappableStorage` contract is deployed
-2. `SwappableStorage` contract is initialized with a new _Signer Server_ address and potentially a new price
-3. current `SwappableStorage` address gets set to a new `SwappableStorage` address
-4. `Biomapper` contract invokes the `initGeneration` function of `BiomapperLog` contract
+2. `SwappableStorage` contract is initialized with a new _Signer Server_ address
+   and potentially a new price
+3. current `SwappableStorage` address gets set to a new `SwappableStorage`
+   address
+4. `Biomapper` contract invokes the `initGeneration` function of `BiomapperLog`
+   contract
 
 #### **`BiomapperLog` contract**
 
-Upon receiving `initGeneration` call from the `Biomapper` contract, `BiomapperLog` initializes a new `Generation` struct and adds it into the generations doubly linked list.
+Upon receiving `initGeneration` call from the `Biomapper` contract,
+`BiomapperLog` initializes a new `Generation` struct and adds it into
+the generations doubly linked list.
 
 </Steps>
 
@@ -71,8 +108,8 @@ considered to be the moment when the `initGeneration` transaction from the
 step 3 is included on chain.
 Operations 3-4 are typically bundled into a single transaction.
 
-The preparation stage encompasses all other aspects including CVM, signer server,
-and swappable storage.
+The preparation stage encompasses all other aspects including CVM,
+signer server, and swappable storage.
 These steps, especially CVM deployment, can be time-consuming.
 
 This division is primarily necessary to minimize the time window required for
