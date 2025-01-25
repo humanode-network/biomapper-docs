@@ -2,7 +2,7 @@
   "prettier.enable": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "package-json-upgrade.ignoreVersions": {
-    "@types/node": ">20"
+    "@types/node": ">22"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
