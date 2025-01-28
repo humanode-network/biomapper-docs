@@ -1,0 +1,33 @@
+---
+description: Cross-chain bridging features of the Humanode Biomapper.
+---
+
+# Cross-chain Bridging
+
+## What is Cross-chain Bridging
+
+Cross-chain Bridging is the capability of the Humanode Biomapper that enables
+users to prove their uniqueness on other (i.e. non-Humanode) chains.
+
+## How it works
+
+Biomapper itself run on the Humanode chain, and users first obatin
+the biomap in the Biomapper by scanning their face (in short).
+
+Then, users can bridge their biomap to other supported chains.
+
+This allows the Dapps on those chains to run on-chain uniqueness checks
+on addresses just like it works on the Humanode chain.
+
+## Technical details
+
+`Biomapper` is a smart contract on the Humanode chain.
+`BridgedBiomapper` is a counterpart contract on each of the supported bridged
+chains.
+
+The information between those smart contract is transferred by the users.
+Any user can bring their Biomapper state to the Bridged Biomapper on
+a particular chain.
+
+The API of the `Biomapper` and/or `BridgedBiomapper` smart contracts is
+available as part of the [Biomapper SDK](integration/biomapper-sdk).
