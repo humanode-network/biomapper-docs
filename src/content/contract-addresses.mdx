@@ -2,32 +2,58 @@
 description: The addresses of smart contracts.
 ---
 
+import { Table, Tabs } from "nextra/components";
+
 # Contract Addresses
 
-## Humanode Mainnet
+## Humanode
 
-See the chain details at [Chains](https://link.humanode.io/docs/chains#humanode-mainnet).
+See the chain details at [Chains](https://link.humanode.io/docs/chains).
 
-| Smart Contract | Address                                      |
-| -------------- | -------------------------------------------- |
-| `Biomapper`    | `0x45E7F628eFd31774De8299EABC80D73Be3E751B3` |
-| `BiomapperLog` | `0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD` |
+<Tabs items={["Mainnet", "Testnet 5"]}>
+  <Tabs.Tab>
+    <Table>
+      <thead>
+        <Table.Tr>
+          <Table.Td>Smart Contract</Table.Td>
+          <Table.Td>Address</Table.Td>
+        </Table.Tr>
+      </thead>
+      <tbody>
+        <Table.Tr>
+          <Table.Td>`Biomapper`</Table.Td>
+          <Table.Td>`0x45E7F628eFd31774De8299EABC80D73Be3E751B3`</Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td>`BiomapperLog`</Table.Td>
+          <Table.Td>`0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD`</Table.Td>
+        </Table.Tr>
+      </tbody>
+    </Table>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <Table>
+      <thead>
+        <Table.Tr>
+          <Table.Td>Smart Contract</Table.Td>
+          <Table.Td>Address</Table.Td>
+        </Table.Tr>
+      </thead>
+      <tbody>
+        <Table.Tr>
+          <Table.Td>`Biomapper`</Table.Td>
+          <Table.Td>`0x82309C161eD219A0f36C5915A4a3e710B1141C7C`</Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td>`BiomapperLog`</Table.Td>
+          <Table.Td>`0x3f2B3E471b207475519989369d5E4F2cAbd0A39F`</Table.Td>
+        </Table.Tr>
+      </tbody>
+    </Table>
+  </Tabs.Tab>
+</Tabs>
 
 The UI URL: `https://mainnet.biomapper.hmnd.app/`
-
-You can find smart contract descriptions
-at [Biomapper SDK docs](https://link.humanode.io/docs/biomapper-sdk).
-
-## Humanode Testnet 5
-
-See the chain details at [Chains](https://link.humanode.io/docs/chains#testnets).
-
-| Smart Contract | Address                                      |
-| -------------- | -------------------------------------------- |
-| `Biomapper`    | `0x82309C161eD219A0f36C5915A4a3e710B1141C7C` |
-| `BiomapperLog` | `0x3f2B3E471b207475519989369d5E4F2cAbd0A39F` |
-
-The UI URL: `https://testnet5.biomapper.hmnd.app/`
 
 You can find smart contract descriptions
 at [Biomapper SDK docs](https://link.humanode.io/docs/biomapper-sdk).
