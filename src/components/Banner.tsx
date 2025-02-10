@@ -1,19 +1,16 @@
 import Image from "next/image";
+import banner from "../assets/banner.png";
 
-type Props = {
-  src: string;
-};
-
-const Banner: React.FC<Props> = ({ src }) => (
+const Banner: React.FC = () => (
   <Image
     alt=""
-    src={src}
+    src={banner}
     decoding="async"
     style={{
       display: "block",
+      maxHeight: "64px",
       objectFit: "cover",
-      maxHeight: "240px",
-      objectPosition: "50% 35%",
+      objectPosition: "50% 45%",
     }}
   />
 );
