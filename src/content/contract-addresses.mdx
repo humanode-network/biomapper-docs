@@ -5,6 +5,11 @@ description: The addresses of smart contracts.
 import { Table, Tabs, Code } from "nextra/components";
 import HumanodeChainInfo from "../components/HumanodeChainInfo";
 import BridgedChainsInfo from "../components/BridgedChainsInfo";
+import {
+  bridgedChainsDisplayOrder,
+  stages,
+  stagesDisplayOrder,
+} from "../data/stages";
 
 # Contract Addresses
 
@@ -12,21 +17,19 @@ import BridgedChainsInfo from "../components/BridgedChainsInfo";
 
 See the chain details at [Chains](https://link.humanode.io/docs/chains).
 
-<Tabs items={["Mainnet", "Testnet 5"]}>
-  <Tabs.Tab>
-    <HumanodeChainInfo
-      biomapperAddress="0x45E7F628eFd31774De8299EABC80D73Be3E751B3"
-      biomapperLogAddress="0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD"
-      uiUrl="https://mainnet.biomapper.hmnd.app/"
-    />
-  </Tabs.Tab>
-  <Tabs.Tab>
-    <HumanodeChainInfo
-      biomapperAddress="0x82309C161eD219A0f36C5915A4a3e710B1141C7C"
-      biomapperLogAddress="0x3f2B3E471b207475519989369d5E4F2cAbd0A39F"
-      uiUrl="https://testnet5.biomapper.hmnd.app/"
-    />
-  </Tabs.Tab>
+<Tabs
+  storageKey="stage"
+  items={stagesDisplayOrder.map((stageId) => stages[stageId].displayName)}
+>
+  {stagesDisplayOrder.map((stageId) => (
+    <Tabs.Tab key={stageId}>
+      <HumanodeChainInfo
+        biomapperAddress={stages[stageId].humanode.addresses.biomapper}
+        biomapperLogAddress={stages[stageId].humanode.addresses.biomapperLog}
+        uiUrl={stages[stageId].humanode.uiUrl}
+      />
+    </Tabs.Tab>
+  ))}
 </Tabs>
 
 You can find smart contract descriptions
@@ -34,4 +37,23 @@ at [Biomapper SDK docs](https://link.humanode.io/docs/biomapper-sdk).
 
 ## Bridged Chains
 
-<BridgedChainsInfo chains={[]} />
+<Tabs
+  storageKey="stage"
+  items={stagesDisplayOrder.map((stageId) => stages[stageId].displayName)}
+>
+  {stagesDisplayOrder.map((stageId) => (
+    <Tabs.Tab key={stageId}>
+      <BridgedChainsInfo
+        chains={bridgedChainsDisplayOrder.map((bridgedChainId) => {
+          const bridgedChainInfo = stages[stageId].bridged[bridgedChainId];
+          return {
+            chainName: bridgedChainInfo.displayName,
+            addresses: {
+              bridgedBiomapper: bridgedChainInfo.addresses.bridgedBiomapper,
+            },
+          };
+        })}
+      />
+    </Tabs.Tab>
+  ))}
+</Tabs>
