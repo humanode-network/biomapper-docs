@@ -11,8 +11,8 @@ const HumanodeChainInfo: React.FC<Props> = (props) => (
     <Table>
       <thead>
         <Table.Tr>
-          <Table.Td>Smart Contract</Table.Td>
-          <Table.Td>Address</Table.Td>
+          <Table.Th>Smart Contract</Table.Th>
+          <Table.Th>Address</Table.Th>
         </Table.Tr>
       </thead>
       <tbody>
