@@ -9,6 +9,7 @@ export default {
   "contract-addresses": "Contract Addresses",
   "user-flow": "User Flow",
   generations: "Generations",
+  bridging: "Bridging",
   "---qwkejndq": {
     type: "separator",
   },
