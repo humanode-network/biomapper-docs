@@ -2,7 +2,8 @@
 description: The addresses of smart contracts.
 ---
 
-import { Table, Tabs } from "nextra/components";
+import { Table, Tabs, Code } from "nextra/components";
+import HumanodeChainInfo from "../components/HumanodeChainInfo";
 
 # Contract Addresses
 
@@ -12,50 +13,18 @@ See the chain details at [Chains](https://link.humanode.io/docs/chains).
 
 <Tabs items={["Mainnet", "Testnet 5"]}>
   <Tabs.Tab>
-    <Table>
-      <thead>
-        <Table.Tr>
-          <Table.Td>Smart Contract</Table.Td>
-          <Table.Td>Address</Table.Td>
-        </Table.Tr>
-      </thead>
-      <tbody>
-        <Table.Tr>
-          <Table.Td>`Biomapper`</Table.Td>
-          <Table.Td>`0x45E7F628eFd31774De8299EABC80D73Be3E751B3`</Table.Td>
-        </Table.Tr>
-        <Table.Tr>
-          <Table.Td>`BiomapperLog`</Table.Td>
-          <Table.Td>`0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD`</Table.Td>
-        </Table.Tr>
-      </tbody>
-    </Table>
-
-    The UI URL: `https://mainnet.biomapper.hmnd.app/`
-
+    <HumanodeChainInfo
+      biomapperAddress="0x45E7F628eFd31774De8299EABC80D73Be3E751B3"
+      biomapperLogAddress="0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD"
+      uiUrl="https://mainnet.biomapper.hmnd.app/"
+    />
   </Tabs.Tab>
   <Tabs.Tab>
-    <Table>
-      <thead>
-        <Table.Tr>
-          <Table.Td>Smart Contract</Table.Td>
-          <Table.Td>Address</Table.Td>
-        </Table.Tr>
-      </thead>
-      <tbody>
-        <Table.Tr>
-          <Table.Td>`Biomapper`</Table.Td>
-          <Table.Td>`0x82309C161eD219A0f36C5915A4a3e710B1141C7C`</Table.Td>
-        </Table.Tr>
-        <Table.Tr>
-          <Table.Td>`BiomapperLog`</Table.Td>
-          <Table.Td>`0x3f2B3E471b207475519989369d5E4F2cAbd0A39F`</Table.Td>
-        </Table.Tr>
-      </tbody>
-    </Table>
-
-    The UI URL: `https://testnet5.biomapper.hmnd.app/`
-
+    <HumanodeChainInfo
+      biomapperAddress="0x82309C161eD219A0f36C5915A4a3e710B1141C7C"
+      biomapperLogAddress="0x3f2B3E471b207475519989369d5E4F2cAbd0A39F"
+      uiUrl="https://testnet5.biomapper.hmnd.app/"
+    />
   </Tabs.Tab>
 </Tabs>
 
