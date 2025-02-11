@@ -29,6 +29,8 @@ export const stages = {
   },
 } as const satisfies StagesShape;
 
+export const mainStageId = "mainnet" as const satisfies StageId;
+
 export const stagesDisplayOrder = [
   "mainnet",
   "testnet5",
