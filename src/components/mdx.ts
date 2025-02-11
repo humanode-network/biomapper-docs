@@ -1,5 +1,5 @@
 import { useMDXComponents } from "../mdx-components";
 
-const components = useMDXComponents();
+export const MDX = useMDXComponents();
 
-export const P = components.p;
+export const P = MDX.p;
