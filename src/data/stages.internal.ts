@@ -4,10 +4,10 @@
 // definitions of the data.
 
 import { BridgedChainId } from "./stages.derived";
-import { Stage } from "./stages.types";
+import { GeneralBridgedChainInfo, Stage } from "./stages.types";
 
 // Any stages, but each must have same bridged chains.
 export type StagesShape = Record<string, Stage<BridgedChainId>>;
 
-// Any shape of a list of bridged chain ids.
-export type BridgedChainIdsShape = string[];
+// Any shape of a list of global bridged chain info.
+export type BridgedChainsShape = Record<string, GeneralBridgedChainInfo>;

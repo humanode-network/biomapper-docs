@@ -20,3 +20,7 @@ export type Stage<BridgedChainIds extends string> = {
   humanode: HumanodeChainInfo;
   bridged: Record<BridgedChainIds, BridgedChainInfo>;
 };
+
+export type GeneralBridgedChainInfo = {
+  generalDisplayName: string;
+};
