@@ -1,7 +1,5 @@
 import { Code, Table } from "nextra/components";
-import { useMDXComponents } from "../../mdx-components";
-
-const { p: P } = useMDXComponents();
+import { P } from "../mdx";
 
 type Props = {
   biomapperAddress: string;
