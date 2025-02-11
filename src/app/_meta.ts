@@ -1,3 +1,5 @@
+import { separator } from "../utils/meta";
+
 export default {
   index: {
     title: "Overview",
@@ -5,24 +7,24 @@ export default {
       breadcrumb: false,
     },
   },
+
+  "---arch": separator,
+
   about: "About",
-  "contract-addresses": "Contract Addresses",
   "user-flow": "User Flow",
   generations: "Generations",
   bridging: "Bridging",
-  "---qwkejndq": {
-    type: "separator",
-  },
-  showcase: "Showcase",
-  "---naK0ahph": {
-    type: "separator",
-  },
+
+  "---contract-addresses": separator,
+
+  "contract-addresses": "Contract Addresses",
   integration: "Integration",
-  "---Paisahg1": {
-    type: "separator",
-  },
   interfaces: {
     title: "Interfaces",
     href: "https://link.humanode.io/docs/biomapper-sdk",
   },
+
+  "---showcase": separator,
+
+  showcase: "Showcase",
 };
