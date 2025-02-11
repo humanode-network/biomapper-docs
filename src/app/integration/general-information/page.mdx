@@ -6,6 +6,8 @@ import { Callout } from "nextra/components";
 import Embed from "../../../components/Embed";
 import { VscGithub } from "react-icons/vsc";
 import { AiFillBook } from "react-icons/ai";
+import DataLink from "../../../components/DataLink";
+import links from "../../../data/links";
 
 # General Information
 
@@ -13,10 +15,9 @@ Here we outline the general guidance on how to integrate you dapp with
 Humanode Biomapper.
 
 <Callout type="info">
-  __TLDR__: just use the [Solidity ABI][interfaces].
+  __TLDR__: just use the{" "}
+  <DataLink link="biomapperSdkDocs">Solidity ABI</DataLink>.
 </Callout>
-
-[interfaces]: https://link.humanode.io/docs/biomapper-sdk
 
 ## About Humanode Biomapper SDK
 
@@ -47,7 +48,7 @@ The automatically generated documentation on the SDK components:
 
 <Embed
   title="Solidity API"
-  href="https://link.humanode.io/docs/biomapper-sdk"
+  href={links.biomapperSdkDocs}
   icon={<AiFillBook />}
 />
 
@@ -55,17 +56,13 @@ The automatically generated documentation on the SDK components:
 
 See simple usage instructions at the Biomapper SDK repo here:
 
-<Embed
-  title="Usage"
-  href="https://github.com/humanode-network/biomapper-sdk/tree/master/usage"
-  icon={<VscGithub />}
-/>
+<Embed title="Usage" href={links.biomapperSdkRepoUsage} icon={<VscGithub />} />
 
 and the more complete use cases demonstration here:
 
 <Embed
   title="Examples"
-  href="https://github.com/humanode-network/biomapper-sdk/tree/master/examples"
+  href={links.biomapperSdkRepoExamples}
   icon={<VscGithub />}
 />
 
@@ -75,6 +72,6 @@ See the full Biomapper SDK source code at our Github:
 
 <Embed
   title="Biomapper SDK"
-  href="https://github.com/humanode-network/biomapper-sdk"
+  href={links.biomapperSdkRepo}
   icon={<VscGithub />}
 />

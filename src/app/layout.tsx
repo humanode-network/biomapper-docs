@@ -7,6 +7,7 @@ import Image from "next/image";
 import FaviconImage from "../assets/favicon.png";
 import LogoImage from "../assets/logo.png";
 import { Metadata } from "next";
+import links from "../data/links";
 
 const logo = (
   <div
@@ -32,8 +33,8 @@ export const metadata: Metadata = {
 const navbar = (
   <Navbar
     logo={logo}
-    projectLink="https://github.com/humanode-network/biomapper-docs"
-    chatLink="https://link.humanode.io/chat"
+    projectLink={links.biomapperDocsRepo}
+    chatLink={links.chat}
   />
 );
 const footer = <Footer>Humanode Biomapper Documentation</Footer>;
@@ -55,7 +56,7 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/humanode-network/biomapper-docs/tree/master"
+          docsRepositoryBase={links.biomapperDocsRepoMaster}
           footer={footer}
         >
           {children}
