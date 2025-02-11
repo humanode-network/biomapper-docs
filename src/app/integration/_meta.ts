@@ -1,6 +1,7 @@
 export default {
-  "biomapper-sdk": "Biomapper SDK",
-  "official-biomapper-http-api": "Official Biomapper HTTP API",
-  indexers: "Indexers",
-  bridges: "Bridges",
+  "general-information": "General Information",
+  interfaces: {
+    title: "Solidity API",
+    href: "https://link.humanode.io/docs/biomapper-sdk",
+  },
 };
