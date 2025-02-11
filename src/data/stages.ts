@@ -1,4 +1,4 @@
-import { BridgedChainIdsOrder, StageIdsOrder } from "./stages.derived";
+import { BridgedChainIdsOrder, StageId, StageIdsOrder } from "./stages.derived";
 import { BridgedChainsShape, StagesShape } from "./stages.internal";
 
 // Wait for announcements!
@@ -28,6 +28,8 @@ export const stages = {
     bridged: {},
   },
 } as const satisfies StagesShape;
+
+export const mainStageId = "mainnet" as const satisfies StageId;
 
 export const stagesDisplayOrder = [
   "mainnet",
