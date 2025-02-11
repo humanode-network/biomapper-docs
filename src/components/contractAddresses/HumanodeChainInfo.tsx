@@ -1,4 +1,7 @@
 import { Code, Table } from "nextra/components";
+import { useMDXComponents } from "../../mdx-components";
+
+const { p: P } = useMDXComponents();
 
 type Props = {
   biomapperAddress: string;
@@ -34,9 +37,9 @@ const HumanodeChainInfo: React.FC<Props> = (props) => (
         </Table.Tr>
       </tbody>
     </Table>
-    <p className="x:not-first:mt-6 x:leading-7">
+    <P>
       The UI URL: <Code>{props.uiUrl}</Code>.
-    </p>
+    </P>
   </>
 );
 
