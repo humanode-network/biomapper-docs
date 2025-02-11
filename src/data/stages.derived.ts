@@ -2,8 +2,9 @@
 // It contains mainly the support types and values that are derived from
 // the manually entered values.
 
+import { NeverForEmpty } from "../types/NeverForEmpty";
 import { TuplifyUnionAnyOrder } from "../types/unionToTuple";
-import { bridgedChainIds, stages } from "./stages";
+import { bridgedChains, stages } from "./stages";
 
 export type Stages = typeof stages;
 
@@ -11,6 +12,8 @@ export type StageId = keyof Stages;
 
 export type StageIdsOrder = TuplifyUnionAnyOrder<StageId>;
 
-export type BridgedChainId = (typeof bridgedChainIds)[number];
+export type BridgedChains = typeof bridgedChains;
+
+export type BridgedChainId = NeverForEmpty<keyof BridgedChains>;
 
 export type BridgedChainIdsOrder = TuplifyUnionAnyOrder<BridgedChainId>;

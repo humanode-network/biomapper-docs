@@ -1,8 +1,8 @@
 import { BridgedChainIdsOrder, StageIdsOrder } from "./stages.derived";
-import { BridgedChainIdsShape, StagesShape } from "./stages.internal";
+import { BridgedChainsShape, StagesShape } from "./stages.internal";
 
 // Wait for announcements!
-export const bridgedChainIds = [] as const satisfies BridgedChainIdsShape;
+export const bridgedChains = {} as const satisfies BridgedChainsShape;
 
 export const stages = {
   mainnet: {
