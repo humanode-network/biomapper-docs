@@ -19,10 +19,6 @@ export default {
 
   "contract-addresses": "Contract Addresses",
   integration: "Integration",
-  interfaces: {
-    title: "Interfaces",
-    href: "https://link.humanode.io/docs/biomapper-sdk",
-  },
 
   "---showcase": separator,
 
