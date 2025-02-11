@@ -18,6 +18,9 @@ export default {
   "---contract-addresses": separator,
 
   "contract-addresses": "Contract Addresses",
+
+  "---integration": separator,
+
   integration: "Integration",
 
   "---showcase": separator,
