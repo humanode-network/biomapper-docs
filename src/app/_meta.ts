@@ -1,3 +1,4 @@
+import type { MetaRecord } from "nextra";
 import { separator } from "../utils/meta";
 
 export default {
@@ -26,4 +27,4 @@ export default {
   "---showcase": separator,
 
   showcase: "Showcase",
-};
+} as const satisfies MetaRecord;
