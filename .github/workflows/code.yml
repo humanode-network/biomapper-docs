@@ -16,8 +16,15 @@ defaults:
     shell: bash
 
 jobs:
-  prettier:
-    name: prettier:check
+  yarn:
+    strategy:
+      matrix:
+        command:
+          - prettier:check
+          - build
+      fail-fast: false
+
+    name: ${{ matrix.command }}
     runs-on: ubuntu-22.04
     timeout-minutes: 50
     permissions:
@@ -37,4 +44,4 @@ jobs:
 
       - run: yarn install --immutable
 
-      - run: yarn prettier:check
+      - run: yarn ${{ matrix.command }}
