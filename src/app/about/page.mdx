@@ -8,35 +8,40 @@ import { Callout } from "nextra/components";
 
 ## What is Humanode Biomapper
 
-Biomapper is an on-chain private facial recognition tool that ensures that
-a person verified only one Ethereum-compatible address in the Dapp.
-It was created as a response to Sybil attacks - attempts to trick the rating
-systems in web3 using multiple accounts and automated bots.
+Biomapper is an on-chain, private facial recognition tool that
+makes sure that each verified person can link only one 
+EVM-compatible wallet to a dApp. It is built to provide
+Sybil resistance to stop fraudsters and scammers from 
+tricking your dApp by using multiple accounts and bots.
 
-### Simplicity
+## Key Features
+* ### Quick & Simple Verification
 
-All a user has to do is to accept the terms and privacy policy,
-go through 15 seconds of facial recognition and then execute the smart contract,
-paying a small fee, usually under 1$ in the network's tokens.
+All a user has to do is accept the terms and privacy policy,
+go through 15 seconds of facial recognition, and execute the smart contract,
+paying a small fee, usually under 1$ in the network’s tokens
 
-### Privacy
+* ### Privacy-preserving & Secure
 
-Unlike KYC solutions, the user doesn't need to share any documents or personal
-data.
-The original video feed/photo never leaves the user's device.
-Anonymised biometric data is encrypted locally on the device, and then sent to
-the Confidential Virtual Machine (CVM) which is able to compare the new user
-against all who registered previously.
-No one has access to the data inside the CVM ensuring privacy of anonymised
-facial data.
+Unlike KYC solutions, the user doesn’t need to share any documents or personal data.
+The original video feed/photo never leaves the user’s device.
+Anonymized biometric data is encrypted locally on the device,
+and then sent to the Confidential Virtual Machine (CVM) where it compares the 
+new user against all who registered previously. No one has access to the data
+inside the CVM ensuring privacy of anonymised facial data.
 
-### Accuracy
+* ### Cross-chain bridging
 
-Humanode has unmatched accuracy levels. The false acceptance rate (FAR) of
-1-to-n search and matching operations is 1 in 125 million.
-There are over 60 machine learning and other types of modules dedicated
-to liveness detection which make sure that the video feed of the user
-is real, not a deep fake or injected video, with the false acceptance rate
-of 1 in 100 thousand.
-Currently the bounty for a successful attempt of a Sybil attack is $600,000
+Biomap status can be deployed on any EVM-compatible chain by the users,
+meaning that dApp developers can run uniqueness checks on EVM addresses
+on-chain on any EVM-compatible chain.
+
+* ### High accuracy & security
+
+Humanode has unmatched accuracy levels. The false acceptance rate (FAR)
+of 1-to-n search and matching operations is 1 in 125 million. There are
+over 60 machine learning and other types of modules dedicated to liveness
+detection which make sure that the video feed of the user is real,
+not a deepfake or injected video, with a false acceptance rate of 1 in 100 thousand.
+Currently, the bounty for a successful attempt of a Sybil attack is $600,000
 which no one was able to claim in the last 3 years.
