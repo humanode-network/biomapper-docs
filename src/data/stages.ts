@@ -2,7 +2,11 @@ import { BridgedChainIdsOrder, StageId, StageIdsOrder } from "./stages.derived";
 import { BridgedChainsShape, StagesShape } from "./stages.internal";
 
 // Wait for announcements!
-export const bridgedChains = {} as const satisfies BridgedChainsShape;
+export const bridgedChains = {
+  avalanche: {
+    generalDisplayName: "Avalanche",
+  },
+} as const satisfies BridgedChainsShape;
 
 export const stages = {
   mainnet: {
@@ -14,7 +18,14 @@ export const stages = {
       },
       uiUrl: "https://mainnet.biomapper.hmnd.app/",
     },
-    bridged: {},
+    bridged: {
+      avalanche: {
+        displayName: "Avalanche C-Chain",
+        addresses: {
+          bridgedBiomapper: "0x5787AB5aa6ee0b20569B9b3680eC4bb4A90663F4",
+        },
+      },
+    },
   },
   testnet5: {
     displayName: "Testnet 5",
@@ -25,7 +36,14 @@ export const stages = {
       },
       uiUrl: "https://testnet5.biomapper.hmnd.app/",
     },
-    bridged: {},
+    bridged: {
+      avalanche: {
+        displayName: "Avalanche Testnet Fuji C-Chain",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
+    },
   },
 } as const satisfies StagesShape;
 
@@ -36,5 +54,6 @@ export const stagesDisplayOrder = [
   "testnet5",
 ] as const satisfies StageIdsOrder;
 
-export const bridgedChainsDisplayOrder =
-  [] as const satisfies BridgedChainIdsOrder;
+export const bridgedChainsDisplayOrder = [
+  "avalanche",
+] as const satisfies BridgedChainIdsOrder;
