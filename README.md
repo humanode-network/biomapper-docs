@@ -20,6 +20,7 @@ you see the actual rendering - make yourself a proper development setup.
 - Install [VS Code](https://code.visualstudio.com/)
 - Install [Node.js](https://nodejs.org/)
 - Install [git](https://git-scm.com/)
+- Install [git-lfs](https://git-lfs.com/)
 
 #### Installation
 
