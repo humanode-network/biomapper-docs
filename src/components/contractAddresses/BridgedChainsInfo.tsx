@@ -27,8 +27,8 @@ const BridgedChainsInfo: React.FC<Props> = ({ chains }) => (
           <Table.Td colSpan={2}>Wait for announcements!</Table.Td>
         </Table.Tr>
       ) : (
-        chains.map((info) => (
-          <Table.Tr>
+        chains.map((info, index) => (
+          <Table.Tr key={index}>
             <Table.Td>{info.chainName}</Table.Td>
             <Table.Td>
               <Code>{info.addresses.bridgedBiomapper}</Code>
