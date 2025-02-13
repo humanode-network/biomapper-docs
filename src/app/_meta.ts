@@ -32,8 +32,4 @@ export default {
     type: "doc",
     display: "children",
   },
-
-  "---showcase": separator,
-
-  showcase: "Showcase",
 } as const satisfies MetaRecord;
