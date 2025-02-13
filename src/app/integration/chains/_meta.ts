@@ -2,10 +2,11 @@ import type { MetaRecord } from "nextra";
 import { bridgedChains, bridgedChainsDisplayOrder } from "../../../data/stages";
 
 const items = bridgedChainsDisplayOrder.reduce((links, bridgedChainId) => {
+  const bridgedChain = bridgedChains[bridgedChainId];
   return {
     ...links,
     [bridgedChainId]: {
-      title: bridgedChains[bridgedChainId].generalDisplayName,
+      title: bridgedChain.generalDisplayName,
       href: `/integration/chains/${bridgedChainId}`,
     },
   };
