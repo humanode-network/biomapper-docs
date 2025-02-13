@@ -9,5 +9,4 @@ export default withNextra({
   },
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  basePath: "/biomapper-docs",
 });
