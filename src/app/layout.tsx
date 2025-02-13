@@ -37,7 +37,12 @@ const navbar = (
     chatLink={links.chat}
   />
 );
-const footer = <Footer>Humanode Biomapper Documentation</Footer>;
+const footer = (
+  <Footer>
+    &copy; 2023 - {new Date().getFullYear()} by Humanode Biomapper Documentation
+    contributors.
+  </Footer>
+);
 
 export default async function RootLayout({ children }) {
   return (
