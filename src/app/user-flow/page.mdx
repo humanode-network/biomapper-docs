@@ -11,47 +11,51 @@ import { Steps } from "nextra/components";
 <Steps>
 ### Dashboard Page
 
-The first page that users encounter is the dashboard page that displays
-the global system state and the account standing.
-Users can check whether they have a biomap in the current generation.
-They can choose to proceed to obatin a biomap and navigate to
-the corresponding page.
+When users first access Biomapper, they land on the dashboard page, which shows
+their account status and the overall system state. Here, users can check if
+they already have a biomap for the current generation. If they don't,
+they can proceed to create one by navigating to the Biomap page.
 
 ### Biomap Page
 
-Biomap page is featuring the Terms of Service and Privacy Policy.
-Users must agree to these terms and confirm that they are of legal age
-before proceeding.
+On this page, users must review and accept the Terms of Service and
+Privacy Policy. They also need to confirm that they are of legal age
+before continuing.
 
 ### Face Scan and Liveness Check
 
-Users show their face to the camera. Biometric information is captured and
-sent to the CVM via an encrypted channel.
-CVM performs liveness check and matching against its local state.
-Next, user is prompted to share their _Humanode Identifier_ with
-_Humanode Biomapper_, after which _Humanode Biomapper_ stores
-the _Humanode Identifier_ in a hashed form known as _Biotoken_
-for the duration of the session.
+Users undergo a quick face scan to verify their uniqueness:
+
+- They show their face to the camera.
+- Their biometric information is captured and securely sent to the
+  Confidential Virtual Machine (CVM) via an encrypted channel for verification.
+- The CVM performs; a liveness check to confirm that the user is a real person
+  and not a deepfake and 1 to n matching to ensure the user isn’t already in the verified list.
+- If successful, users are prompted to share their _Humanode Identifier_
+  with _Humanode Biomapper_.
+- The identifier is stored in a hashed form _Biotoken_ for the duration
+  of the session.
 
 ### Signing Page
 
-On the signig page user has to select an EVM address to link their
-_Biotoken_ with.
-User presses the button to sign the message containing the _Biotoken_ with their
-private key, and this signed message is then passed to the _Signing Server_ to
-confirm the address and _Biotoken_ ownership.
-In response, the _Signing Server_ provides an attestation signature that
-can be submitted on-chain.
-Then user signs and submits a transaction to the `Biomapper` smart contract
-containing a call to the `proveUniqueness` function with the _Biotoken_
-and the attestation signature, resulting in an on-chain record of the user's
-uniqueness.
-After this, user returns to the dashboard page.
+To complete the verification, users must link their Biotoken to an EVM address:
 
-### Dashboard Page
+1. Users select their preferred EVM wallet.
+2. They sign a message containing the _Biotoken_ using their
+   private key.
+3. The signed message is sent to the _Signing Server_.
+4. The _Signing Server_ verifies
+   ownership of both the EVM address and the _Biotoken_ and returns an attestation signature, which users
+   submit on-chain.
+5. Finally, users sign and send a transaction to the `Biomapper` smart contract,
+   calling the `proveUniqueness` function with their _Biotoken_
+   and attestation signature.
+6. This creates an on-chain record proving the user's uniqueness.
 
-Back at the dashboard page, users can now bridge their biomap to any of
-the supported chains.
-This is done right on the dashboard page.
+### Returning to Dashboard Page
+
+After completing the process, users return to the dashboard page,
+where they now have the option to bridge their biomap to any supported
+blockchain. This action is completed directly on the dashboard.
 
 </Steps>
