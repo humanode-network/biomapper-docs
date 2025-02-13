@@ -29,6 +29,8 @@ const humanodeSwap =
 const polkadotExt = "https://polkadot.js.org/extension";
 const talismanWallet = "https://link.humanode.io/wallets/talisman";
 
+const humanodeTestnet5FaucetBot = "https://t.me/HumanodeTestnet5FaucetBot";
+
 const links = {
   chat,
   humanodeDocsChains,
@@ -42,6 +44,7 @@ const links = {
   humanodeSwap,
   polkadotExt,
   talismanWallet,
+  humanodeTestnet5FaucetBot,
 } as const satisfies Record<string, `https://${string}`>;
 
 export default links;
