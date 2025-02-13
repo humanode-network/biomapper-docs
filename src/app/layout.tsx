@@ -1,7 +1,8 @@
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
-import "nextra-theme-docs/style.css";
+
+import "./globals.css";
 
 import Image from "next/image";
 import FaviconImage from "../assets/favicon.png";
@@ -10,14 +11,7 @@ import { Metadata } from "next";
 import links from "../data/links";
 
 const logo = (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      gap: "8px",
-    }}
-  >
+  <div className="flex flex-row items-center gap-2">
     <Image src={LogoImage} width={42} height={42} alt="Humanode" />
     <div>Humanode Biomapper Documentation</div>
   </div>
