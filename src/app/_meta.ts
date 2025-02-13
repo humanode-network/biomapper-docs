@@ -16,7 +16,7 @@ export default {
 
   "---getting-started": {
     ...separator,
-    title: "Getting started",
+    title: "Getting Started",
   },
 
   about: noBreadcrumb("About"),
