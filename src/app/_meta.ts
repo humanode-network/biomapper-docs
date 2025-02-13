@@ -9,7 +9,10 @@ export default {
     },
   },
 
-  "---arch": separator,
+  "---getting-started": {
+    ...separator,
+    title: "Getting started",
+  },
 
   about: "About",
   "user-flow": "User Flow",
@@ -20,9 +23,15 @@ export default {
 
   "contract-addresses": "Contract Addresses",
 
-  "---integration": separator,
+  "---integration": {
+    ...separator,
+    title: "Integration",
+  },
 
-  integration: "Integration",
+  integration: {
+    type: "doc",
+    display: "children",
+  },
 
   "---showcase": separator,
 
