@@ -5,6 +5,7 @@ title: Humanode Biomapper Docs
 import Banner from "../components/Banner";
 import { Cards } from "nextra/components";
 import links from "../data/links";
+import { bridgedChainsDisplayOrder, bridgedChains } from "../data/stages";
 
 <Banner />
 
@@ -41,12 +42,26 @@ Integration instructions.
     target="_blank"
     arrow
   />
+  <Cards.Card title="Showcase" href="/showcase" arrow />
 </Cards>
 
-## Showcase
-
-A showcase of integartions with Humanode Biomapper.
+### Bridged Chains
 
 <Cards>
-  <Cards.Card title="Showcase" href="/showcase" arrow />
+  {bridgedChainsDisplayOrder.map((bridgedChainId) => (
+    <Cards.Card
+      title={bridgedChains[bridgedChainId].generalDisplayName}
+      href={`/integration/chains/${bridgedChainId}`}
+      arrow
+    />
+  ))}
+</Cards>
+
+## Guides
+
+### How to get eHMND
+
+<Cards>
+  <Cards.Card title="Mainnet" href="/get-ehmnd/mainnet" arrow />
+  <Cards.Card title="Testnet" href="/get-ehmnd/testnet" arrow />
 </Cards>
