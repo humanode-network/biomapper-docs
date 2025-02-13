@@ -43,7 +43,7 @@ export default {
     title: "Guides",
   },
 
-  'get-ehmnd': "How to get eHMND",
+  "get-ehmnd": "How to get eHMND",
 
   biomapper: {
     title: "Biomapper App",
