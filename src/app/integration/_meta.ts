@@ -9,5 +9,7 @@ export default {
     href: links.biomapperSdkDocs,
   },
 
+  chains: "Chains",
+
   showcase: "Showcase",
 } as const satisfies MetaRecord;

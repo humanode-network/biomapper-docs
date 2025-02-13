@@ -1,0 +1,64 @@
+import { Code } from "nextra/components";
+
+import { bridgedChains, stages, mainStageId } from "../../../../data/stages";
+import { MDX } from "../../../../components/mdx";
+import DataLink from "../../../../components/DataLink";
+
+{/* prettier-ignore-start */}
+
+{/** @import {Props} from './content.types.ts' */}
+
+{/* prettier-ignore-end */}
+
+[contract addresses]: /contract-addresses
+
+<MDX.h1>{props.bridgedChain.generalDisplayName}</MDX.h1>
+
+Integrating with Humanode Biomapper on {props.bridgedChain.generalDisplayName} network.
+
+## Getting Started
+
+First familiarize yourself with core concepts like
+[Generations](/generations)
+and [General Information](/integration/general-information) about the integrations.
+
+Then, all you need to do is
+
+- write your smart contract that integrated with Bridged Biomapper on
+  {props.bridgedChain.generalDisplayName} network, and
+- add the link to Biomapper UI on your frontend to let your users obtain
+  the biomapping.
+
+## Development
+
+### Smart Contract
+
+Use <DataLink link="biomapperSdkDocs">Biomapper SDK</DataLink> to get
+the APIs for smart contracts.
+
+You can use <Code>MockBridgedBiomapper</Code> contract for local development,
+and testnet deployment of the <Code>BridgedBiomapper</Code> to real-world
+testing.
+
+See technical details at
+the <DataLink link="biomapperSdkDocs">Biomapper SDK Docs</DataLink>.
+
+### Frontend
+
+Integrating on the frontend is as simple as adding a link to the Biomapper App.
+
+In general, you can always find the right URL at the [contract addresses] page.
+
+## Rollout
+
+When you are ready, deploy your smart contract
+to {props.bridgedChain.generalDisplayName} and connect it to
+the Humanode Bridged Biomapper
+on <b>{stages[mainStageId].bridged[props.bridgedChainId].displayName}</b>
+(see [contract addresses]).
+
+Don't forget to update the link to Biomapper App your the frontend to mainnet Biomapper App.
+
+## After Rollout
+
+If you'd like your app to be listed in the Biomapper App talk to us.
