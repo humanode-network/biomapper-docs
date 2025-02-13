@@ -1,6 +1,6 @@
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import { Head } from "nextra/components";
-import { getPageMap } from "nextra/page-map";
+import { getPageMap, normalizePageMap } from "nextra/page-map";
 
 import "./globals.css";
 
@@ -9,6 +9,7 @@ import FaviconImage from "../assets/favicon.png";
 import LogoImage from "../assets/logo.png";
 import { Metadata } from "next";
 import links from "../data/links";
+import { injectPageMap as injectChainsPageMap } from "./integration/chains/pageMap";
 
 const logo = (
   <div className="flex flex-row items-center gap-2">
@@ -41,6 +42,9 @@ const footer = (
 
 export default async function RootLayout({ children }) {
   const pageMap = await getPageMap();
+
+  const extendedPageMap = injectChainsPageMap(pageMap);
+
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head>
@@ -50,7 +54,7 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           navbar={navbar}
-          pageMap={pageMap}
+          pageMap={extendedPageMap}
           docsRepositoryBase={links.biomapperDocsRepoMaster}
           footer={footer}
         >
