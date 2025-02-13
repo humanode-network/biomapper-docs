@@ -1,0 +1,59 @@
+---
+title: How to Get eHMND Tokens for Biomapping Transaction Fees
+---
+
+import { A } from "../../../components/mdx";
+import links, { tradeLinks } from "../../../data/links";
+
+# How to Get eHMND Tokens for Biomapping Transaction Fees
+
+## Mainnet
+
+To cover the price and network fees for the Biomapping you'll need eHMND tokens.
+
+There are two ways to get them:
+
+- [Option 1](#option-1) - buy HMND from a Centralized Exchange (CEX) & swap.
+- [Option 2](#option-2) - buy HMND on BitMart & Withdraw Directly as eHMND.
+
+### Option 1
+
+#### Buy HMND tokens from a supported centralized exchange
+
+Exchanges where you can buy HMND:
+
+- <A href={tradeLinks.bingx}>BingX</A>
+- <A href={tradeLinks.bingx}>BitMart</A>
+- <A href={tradeLinks.bingx}>KuCoin</A>
+- <A href={tradeLinks.bingx}>SimpleSwap</A>
+- <A href={tradeLinks.bingx}>CoinEx</A>
+
+#### Transfer HMND to your Polkadot wallet or Talisman wallet
+
+Use the <A href={links.humanodeSwap}>Humanode internal swap</A>
+to convert HMND to eHMND.
+
+1. Enter your Polkadot/Talisman wallet address starting with `hm...` in
+   the _Substrate account_ field.
+   You'll need to install the required extension:
+
+   - <A href={links.polkadotExt}>Polkadot wallet extension</A>
+   - <A href={links.talismanWallet}>Talisman wallet extension</A>
+
+2. Connect your Ethereum-compatible wallet (MetaMask or Talisman) in
+   the Ethereum address field.
+
+3. Confirm the swap.
+   Your eHMND will be sent to your EVM wallet.
+
+### Option 2
+
+#### Buy HMND on BitMart & Withdraw Directly as eHMND
+
+Buy HMND on <A href={tradeLinks.bingx}>BitMart</A>.
+
+Withdraw HMND directly to your EVM wallet (Metamask or Talisman) that you
+are using to Biomap.
+
+This method is quicker since BitMart allows direct withdrawals to an EVM wallet,
+eliminating the need for an internal swap.

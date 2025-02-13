@@ -38,6 +38,13 @@ export default {
     display: "children",
   },
 
+  "---guides": {
+    ...separator,
+    title: "Guides",
+  },
+
+  "get-ehmnd": "How to get eHMND",
+
   biomapper: {
     title: "Biomapper App",
     type: "menu",
