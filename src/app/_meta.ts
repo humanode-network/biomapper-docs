@@ -1,27 +1,30 @@
 import type { MetaRecord } from "nextra";
 import { separator } from "../utils/meta";
 
-export default {
-  index: {
-    title: "Overview",
+const noBreadcrumb = (title: string) =>
+  ({
+    title,
     theme: {
       breadcrumb: false,
     },
-  },
+  }) as const;
+
+export default {
+  index: noBreadcrumb("Overview"),
 
   "---getting-started": {
     ...separator,
     title: "Getting started",
   },
 
-  about: "About",
-  "user-flow": "User Flow",
-  generations: "Generations",
-  bridging: "Bridging",
+  about: noBreadcrumb("About"),
+  "user-flow": noBreadcrumb("User Flow"),
+  generations: noBreadcrumb("Generations"),
+  bridging: noBreadcrumb("Bridging"),
 
   "---contract-addresses": separator,
 
-  "contract-addresses": "Contract Addresses",
+  "contract-addresses": noBreadcrumb("Contract Addresses"),
 
   "---integration": {
     ...separator,
