@@ -1,3 +1,4 @@
+import React from "react";
 import { NextraMetadata } from "nextra";
 import { MDX } from "../../../../components/mdx";
 import { bridgedChains } from "../../../../data/stages";
