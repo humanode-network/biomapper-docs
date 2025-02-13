@@ -5,6 +5,7 @@ import { bridgedChains } from "../../../../data/stages";
 import { BridgedChainId } from "../../../../data/stages.derived";
 import hackMdxImport from "../../../../utils/hackMdxImport";
 import Content, * as contentImports from "./content.mdx";
+import anyForNever from "../../../../utils/anyForNever";
 
 hackMdxImport(contentImports); // trickery 9000 (TM)
 const { metadata, toc } = contentImports;
@@ -22,7 +23,7 @@ export default async function Page({
 }) {
   const { bridgedChainId } = await params;
 
-  const bridgedChain = bridgedChains[bridgedChainId];
+  const bridgedChain = anyForNever(bridgedChains[bridgedChainId]);
 
   const metadataOverride = {
     ...metadata,
