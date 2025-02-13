@@ -1,5 +1,7 @@
 import type { MetaRecord } from "nextra";
 import { separator } from "../utils/meta";
+import { stages, stagesDisplayOrder } from "../data/stages";
+import type { MetaRecordItems } from "../types/MetaRecordItems";
 
 const noBreadcrumb = (title: string) =>
   ({
@@ -34,5 +36,20 @@ export default {
   integration: {
     type: "doc",
     display: "children",
+  },
+
+  biomapper: {
+    title: "Biomapper App",
+    type: "menu",
+    items: stagesDisplayOrder.reduce(
+      (items, stageId) => ({
+        ...items,
+        [stageId]: {
+          title: stages[stageId].displayName,
+          href: stages[stageId].humanode.uiUrl,
+        } as const,
+      }),
+      {} as MetaRecordItems,
+    ),
   },
 } as const satisfies MetaRecord;
