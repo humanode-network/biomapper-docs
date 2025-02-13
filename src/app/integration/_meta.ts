@@ -9,7 +9,11 @@ export default {
     href: links.biomapperSdkDocs,
   },
 
-  chains: "Chains",
+  chains: {
+    // This is not really a separator, it get overwritten by our hacks
+    // at `pageMap.ts`.
+    type: "separator",
+  },
 
   showcase: "Showcase",
 } as const satisfies MetaRecord;
