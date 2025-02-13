@@ -11,14 +11,7 @@ import { Metadata } from "next";
 import links from "../data/links";
 
 const logo = (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      gap: "8px",
-    }}
-  >
+  <div className="flex flex-row items-center gap-2">
     <Image src={LogoImage} width={42} height={42} alt="Humanode" />
     <div>Humanode Biomapper Documentation</div>
   </div>
