@@ -9,6 +9,7 @@ import FaviconImage from "../assets/favicon.png";
 import LogoImage from "../assets/logo.png";
 import { Metadata } from "next";
 import links from "../data/links";
+import { dynamicMeta } from "./integration/chains/_meta";
 
 const logo = (
   <div className="flex flex-row items-center gap-2">
@@ -41,6 +42,11 @@ const footer = (
 
 export default async function RootLayout({ children }) {
   const pageMap = await getPageMap();
+
+  const { pageMap: chainsPageMap } = dynamicMeta();
+
+  const extendedPageMap = [...pageMap, ...chainsPageMap];
+
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head>
@@ -50,7 +56,7 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           navbar={navbar}
-          pageMap={pageMap}
+          pageMap={extendedPageMap}
           docsRepositoryBase={links.biomapperDocsRepoMaster}
           footer={footer}
         >
