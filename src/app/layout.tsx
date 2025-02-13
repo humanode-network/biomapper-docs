@@ -37,6 +37,7 @@ const navbar = (
     chatLink={links.chat}
   />
 );
+
 const footer = (
   <Footer>
     &copy; 2023 - {new Date().getFullYear()} by Humanode Biomapper Documentation
@@ -45,14 +46,9 @@ const footer = (
 );
 
 export default async function RootLayout({ children }) {
+  const pageMap = await getPageMap();
   return (
-    <html
-      lang="en"
-      // Required to be set
-      dir="ltr"
-      // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
-      suppressHydrationWarning
-    >
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head>
         <link rel="icon" href={FaviconImage.src} type="image/png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +56,7 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           navbar={navbar}
-          pageMap={await getPageMap()}
+          pageMap={pageMap}
           docsRepositoryBase={links.biomapperDocsRepoMaster}
           footer={footer}
         >
