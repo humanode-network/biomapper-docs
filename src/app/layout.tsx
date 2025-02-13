@@ -13,7 +13,7 @@ import links from "../data/links";
 const logo = (
   <div className="flex flex-row items-center gap-2">
     <Image src={LogoImage} width={42} height={42} alt="Humanode" />
-    <div>Humanode Biomapper Documentation</div>
+    <span className="font-bold">Humanode Biomapper</span>
   </div>
 );
 
