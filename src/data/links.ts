@@ -16,6 +16,19 @@ const biomapperDocsRepoMaster =
 
 const biostakerMainnet = "https://mainnet.biostaker.hmnd.app";
 
+export const tradeLinks = {
+  bingx: "https://link.humanode.io/trade/bingx",
+  bitmart: "https://link.humanode.io/trade/bitmart",
+  kucoin: "https://link.humanode.io/trade/kucoin",
+  simpleswap: "https://link.humanode.io/trade/simpleswap",
+  coinex: "https://link.humanode.io/trade/coinex",
+} as const satisfies Record<string, `https://${string}`>;
+
+const humanodeSwap =
+  "https://evm-playground.mainnet.stages.humanode.io/swap/native-to-evm";
+const polkadotExt = "https://polkadot.js.org/extension";
+const talismanWallet = "https://link.humanode.io/wallets/talisman";
+
 const links = {
   chat,
   humanodeDocsChains,
@@ -26,6 +39,9 @@ const links = {
   biomapperSdkRepo,
   biomapperSdkRepoUsage,
   biomapperSdkRepoExamples,
+  humanodeSwap,
+  polkadotExt,
+  talismanWallet,
 } as const satisfies Record<string, `https://${string}`>;
 
 export default links;
