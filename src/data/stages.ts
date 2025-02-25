@@ -6,6 +6,9 @@ export const bridgedChains = {
   avalanche: {
     generalDisplayName: "Avalanche",
   },
+  base: {
+    generalDisplayName: "Base",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -23,6 +26,12 @@ export const stages = {
         displayName: "Avalanche C-Chain",
         addresses: {
           bridgedBiomapper: "0x5787AB5aa6ee0b20569B9b3680eC4bb4A90663F4",
+        },
+      },
+      base: {
+        displayName: "Base",
+        addresses: {
+          bridgedBiomapper: "0x31e98F489ad65dF5Ee43CBe06e4f35557Cd0abb2",
         },
       },
     },
@@ -43,6 +52,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      base: {
+        displayName: "Base Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -56,4 +71,5 @@ export const stagesDisplayOrder = [
 
 export const bridgedChainsDisplayOrder = [
   "avalanche",
+  "base",
 ] as const satisfies BridgedChainIdsOrder;
