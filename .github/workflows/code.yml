@@ -45,3 +45,24 @@ jobs:
       - run: yarn install --immutable
 
       - run: yarn ${{ matrix.command }}
+
+  standalone:
+    strategy:
+      matrix:
+        command:
+          - git lfs fsck
+      fail-fast: false
+
+    name: ${{ matrix.command }}
+    runs-on: ubuntu-22.04
+    timeout-minutes: 50
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+        timeout-minutes: 5
+
+      - run: ${{ matrix.command }}
