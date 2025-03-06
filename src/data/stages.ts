@@ -12,6 +12,9 @@ export const bridgedChains = {
   filecoin: {
     generalDisplayName: "Filecoin",
   },
+  sonic: {
+    generalDisplayName: "Sonic",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -41,6 +44,12 @@ export const stages = {
         displayName: "Filecoin",
         addresses: {
           bridgedBiomapper: "0x1a28DacdF9F5b49A32D4f671df9407FAD0f873d4",
+        },
+      },
+      sonic: {
+        displayName: "Sonic",
+        addresses: {
+          bridgedBiomapper: "0xD613303dC22BBC11B97E6fBcB7fB72A7d2132A87",
         },
       },
     },
@@ -73,6 +82,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      sonic: {
+        displayName: "Sonic Testnet Blaze",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -88,4 +103,5 @@ export const bridgedChainsDisplayOrder = [
   "avalanche",
   "base",
   "filecoin",
+  "sonic",
 ] as const satisfies BridgedChainIdsOrder;
