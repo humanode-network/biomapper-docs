@@ -21,6 +21,9 @@ export const bridgedChains = {
   hyperliquid: {
     generalDisplayName: "Hyperliquid EVM",
   },
+  story: {
+    generalDisplayName: "Story",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -68,6 +71,12 @@ export const stages = {
         displayName: "Hyperliquid EVM",
         addresses: {
           bridgedBiomapper: "0xf8F9C2F35816bC0581D5e2223ad88D51CaF5954e",
+        },
+      },
+      story: {
+        displayName: "Story",
+        addresses: {
+          bridgedBiomapper: "0xd89C46e71FC82eb297344a73edF5F54dD9E8e952",
         },
       },
     },
@@ -118,6 +127,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      story: {
+        displayName: "Story Testnet Aeneid",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -136,4 +151,5 @@ export const bridgedChainsDisplayOrder = [
   "sonic",
   "sei",
   "hyperliquid",
+  "story",
 ] as const satisfies BridgedChainIdsOrder;
