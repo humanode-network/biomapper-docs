@@ -18,6 +18,9 @@ export const bridgedChains = {
   sei: {
     generalDisplayName: "Sei",
   },
+  hyperliquidEVM: {
+    generalDisplayName: "Hyperliquid EVM",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -59,6 +62,12 @@ export const stages = {
         displayName: "Sei",
         addresses: {
           bridgedBiomapper: "0xB263042d1CdE06630aeF5FaC6b2efDdB0A6D5F78",
+        },
+      },
+      hyperliquidEVM: {
+        displayName: "Hyperliquid EVM",
+        addresses: {
+          bridgedBiomapper: "0xf8F9C2F35816bC0581D5e2223ad88D51CaF5954e",
         },
       },
     },
@@ -103,6 +112,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      hyperliquidEVM: {
+        displayName: "Hyperliquid EVM Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -120,4 +135,5 @@ export const bridgedChainsDisplayOrder = [
   "filecoin",
   "sonic",
   "sei",
+  "hyperliquidEVM",
 ] as const satisfies BridgedChainIdsOrder;
