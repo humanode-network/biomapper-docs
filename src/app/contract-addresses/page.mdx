@@ -45,8 +45,12 @@ at <DataLink link="biomapperSdkDocs">Biomapper SDK docs</DataLink>.
   {stagesDisplayOrder.map((stageId) => (
     <Tabs.Tab key={stageId}>
       <BridgedChainsInfo
-        chains={bridgedChainsDisplayOrder.map((bridgedChainId) => {
+        chains={bridgedChainsDisplayOrder.flatMap((bridgedChainId) => {
           const bridgedChainInfo = stages[stageId].bridged[bridgedChainId];
+          if (bridgedChainInfo === null) {
+            return [];
+          }
+
           return {
             chainName: bridgedChainInfo.displayName,
             addresses: {
@@ -56,5 +60,7 @@ at <DataLink link="biomapperSdkDocs">Biomapper SDK docs</DataLink>.
         })}
       />
     </Tabs.Tab>
-  ))}
+
+))}
+
 </Tabs>

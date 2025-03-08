@@ -18,7 +18,7 @@ export type BridgedChainInfo = {
 export type Stage<BridgedChainIds extends string> = {
   displayName: string;
   humanode: HumanodeChainInfo;
-  bridged: Record<BridgedChainIds, BridgedChainInfo>;
+  bridged: Record<BridgedChainIds, BridgedChainInfo | null>;
 };
 
 export type GeneralBridgedChainInfo = {

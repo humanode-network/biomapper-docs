@@ -2,6 +2,7 @@ import { Code } from "nextra/components";
 
 import { bridgedChains, stages, mainStageId } from "../../../../data/stages";
 import { MDX } from "../../../../components/mdx";
+import If from "../../../../components/If";
 import DataLink from "../../../../components/DataLink";
 
 {/* prettier-ignore-start */}
@@ -51,13 +52,23 @@ In general, you can always find the right URL at the [contract addresses] page.
 
 ## Rollout
 
+<If condition={stages[mainStageId].bridged[props.bridgedChainId] !== null}>
+
 When you are ready, deploy your smart contract
 to {props.bridgedChain.generalDisplayName} and connect it to
 the Humanode Bridged Biomapper
-on <b>{stages[mainStageId].bridged[props.bridgedChainId].displayName}</b>
+on <b>{stages[mainStageId].bridged[props.bridgedChainId]?.displayName}</b>
 (see [contract addresses]).
 
 Don't forget to update the link to Biomapper App your the frontend to mainnet Biomapper App.
+
+</If>
+
+<If condition={stages[mainStageId].bridged[props.bridgedChainId] === null}>
+
+The mainnet for this chain is not supported yet, so you can skip the rollout.
+
+</If>
 
 ## After Rollout
 
