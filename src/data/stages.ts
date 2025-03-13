@@ -15,6 +15,9 @@ export const bridgedChains = {
   sonic: {
     generalDisplayName: "Sonic",
   },
+  sei: {
+    generalDisplayName: "Sei",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -50,6 +53,12 @@ export const stages = {
         displayName: "Sonic",
         addresses: {
           bridgedBiomapper: "0xD613303dC22BBC11B97E6fBcB7fB72A7d2132A87",
+        },
+      },
+      sei: {
+        displayName: "Sei",
+        addresses: {
+          bridgedBiomapper: "0xB263042d1CdE06630aeF5FaC6b2efDdB0A6D5F78",
         },
       },
     },
@@ -88,6 +97,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      sei: {
+        displayName: "Sei Testnet Atlantic-2",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -104,4 +119,5 @@ export const bridgedChainsDisplayOrder = [
   "base",
   "filecoin",
   "sonic",
+  "sei",
 ] as const satisfies BridgedChainIdsOrder;
