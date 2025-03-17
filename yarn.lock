@@ -1508,7 +1508,7 @@ __metadata:
     "@types/node": "npm:^22.13.1"
     "@types/react": "npm:^18.3.18"
     next: "npm:^15.1.6"
-    nextra: "npm:^4.2.7"
+    nextra: "npm:^4.2.16"
     nextra-theme-docs: "npm:^4.2.7"
     pagefind: "npm:^1.3.0"
     postcss: "npm:^8.5.2"
@@ -4119,9 +4119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextra@npm:^4.2.7":
-  version: 4.2.7
-  resolution: "nextra@npm:4.2.7"
+"nextra@npm:^4.2.16":
+  version: 4.2.16
+  resolution: "nextra@npm:4.2.16"
   dependencies:
     "@formatjs/intl-localematcher": "npm:^0.6.0"
     "@headlessui/react": "npm:^2.1.2"
@@ -4165,7 +4165,7 @@ __metadata:
     next: ">=14"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/e7aef84a558dbd468a3b3aac4a1629f61e7b6b6c2e2b55eca2f1af8265a0579966fbfa188c5a674b3d43c33ff1d408adc184c26778f4278af9745546b641a17f
+  checksum: 10c0/7b90b6015b8d9dd3e81574c16daaf6c78e4744ebebd4a080787cfa8faf6d37315ad4c16036dee92e318bf072019fa6adc5ed835157731d6fddc3357a0ed50a3f
   languageName: node
   linkType: hard
 
