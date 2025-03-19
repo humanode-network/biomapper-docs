@@ -18,6 +18,9 @@ export const bridgedChains = {
   sei: {
     generalDisplayName: "Sei",
   },
+  janction: {
+    generalDisplayName: "Janction",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -61,6 +64,7 @@ export const stages = {
           bridgedBiomapper: "0xB263042d1CdE06630aeF5FaC6b2efDdB0A6D5F78",
         },
       },
+      janction: null,
     },
   },
   testnet5: {
@@ -103,6 +107,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      janction: {
+        displayName: "Janction Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -120,4 +130,5 @@ export const bridgedChainsDisplayOrder = [
   "filecoin",
   "sonic",
   "sei",
+  "janction",
 ] as const satisfies BridgedChainIdsOrder;
