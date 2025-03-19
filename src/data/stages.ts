@@ -24,6 +24,9 @@ export const bridgedChains = {
   story: {
     generalDisplayName: "Story",
   },
+  janction: {
+    generalDisplayName: "Janction",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -79,6 +82,7 @@ export const stages = {
           bridgedBiomapper: "0xd89C46e71FC82eb297344a73edF5F54dD9E8e952",
         },
       },
+      janction: null,
     },
   },
   testnet5: {
@@ -133,6 +137,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      janction: {
+        displayName: "Janction Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -152,4 +162,5 @@ export const bridgedChainsDisplayOrder = [
   "sei",
   "hyperliquid",
   "story",
+  "janction",
 ] as const satisfies BridgedChainIdsOrder;
