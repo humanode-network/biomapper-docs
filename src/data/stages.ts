@@ -18,6 +18,9 @@ export const bridgedChains = {
   sei: {
     generalDisplayName: "Sei",
   },
+  unichain: {
+    generalDisplayName: "Unichain",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -59,6 +62,12 @@ export const stages = {
         displayName: "Sei",
         addresses: {
           bridgedBiomapper: "0xB263042d1CdE06630aeF5FaC6b2efDdB0A6D5F78",
+        },
+      },
+      unichain: {
+        displayName: "Unichain",
+        addresses: {
+          bridgedBiomapper: "0x32C96D0BE22b2d705bfc5Bcbeea31358857fD4d9",
         },
       },
     },
@@ -103,6 +112,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      unichain: {
+        displayName: "Unichain Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0xa6a8Ad302c5fF23ccA2895eae8BA938CEa338896",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -120,4 +135,5 @@ export const bridgedChainsDisplayOrder = [
   "filecoin",
   "sonic",
   "sei",
+  "unichain",
 ] as const satisfies BridgedChainIdsOrder;
