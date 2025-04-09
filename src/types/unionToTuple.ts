@@ -1,32 +1,35 @@
-// Fixed order.
-
-type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
-  k: infer I,
-) => void
-  ? I
+/**
+ * trick to combine multiple unions of objects into a single object
+ * only works with objects not primitives
+ * @param union - Union of objects
+ * @returns Intersection of objects
+ */
+type UnionToIntersection<union> = (
+  union extends any ? (k: union) => void : never
+) extends (k: infer intersection) => void
+  ? intersection
   : never;
-
-type LastOf<T> =
-  UnionToIntersection<T extends any ? () => T : never> extends () => infer R
-    ? R
+/**
+ * get last element of union
+ * @param Union - Union of any types
+ * @returns Last element of union
+ */
+type GetUnionLast<Union> =
+  UnionToIntersection<
+    Union extends any ? () => Union : never
+  > extends () => infer Last
+    ? Last
     : never;
-
-type Push<T extends any[], V> = [...T, V];
-
-export type TuplifyUnionFixedOrder<
-  T,
-  L = LastOf<T>,
-  N = [T] extends [never] ? true : false,
-> = true extends N ? [] : Push<TuplifyUnionFixedOrder<Exclude<T, L>>, L>;
-
-// Any order.
-
-type TuplifyUnionAnyOrderRecurse<U extends string> = {
-  [S in U]: Exclude<U, S> extends never
-    ? [S]
-    : [...TuplifyUnionAnyOrderRecurse<Exclude<U, S>>, S];
-}[U];
-
-export type TuplifyUnionAnyOrder<U extends string | never> = [U] extends [never]
-  ? []
-  : TuplifyUnionAnyOrderRecurse<U>;
+/**
+ * Convert union to tuple
+ * @param Union - Union of any types, can be union of complex, composed or primitive types
+ * @returns Tuple of each elements in the union
+ */
+export type TuplifyUnion<Union, Tuple extends unknown[] = []> = [
+  Union,
+] extends [never]
+  ? Tuple
+  : TuplifyUnion<
+      Exclude<Union, GetUnionLast<Union>>,
+      [GetUnionLast<Union>, ...Tuple]
+    >;
