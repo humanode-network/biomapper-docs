@@ -1,4 +1,8 @@
-import { BridgedChainIdsOrder, StageId, StageIdsOrder } from "./stages.derived";
+import {
+  StageId,
+  defineStageIdsOrder,
+  defineBridgedChainIdsOrder,
+} from "./stages.derived";
 import { BridgedChainsShape, StagesShape } from "./stages.internal";
 
 // Wait for announcements!
@@ -149,12 +153,9 @@ export const stages = {
 
 export const mainStageId = "mainnet" as const satisfies StageId;
 
-export const stagesDisplayOrder = [
-  "mainnet",
-  "testnet5",
-] as const satisfies StageIdsOrder;
+export const stagesDisplayOrder = defineStageIdsOrder(["mainnet", "testnet5"]);
 
-export const bridgedChainsDisplayOrder = [
+export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "avalanche",
   "base",
   "filecoin",
@@ -163,4 +164,4 @@ export const bridgedChainsDisplayOrder = [
   "hyperliquid",
   "story",
   "janction",
-] as const satisfies BridgedChainIdsOrder;
+]);
