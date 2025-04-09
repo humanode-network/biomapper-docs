@@ -31,6 +31,9 @@ export const bridgedChains = {
   janction: {
     generalDisplayName: "Janction",
   },
+  arbitrum: {
+    generalDisplayName: "Arbitrum One",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -87,6 +90,12 @@ export const stages = {
         },
       },
       janction: null,
+      arbitrum: {
+        displayName: "Arbitrum One",
+        addresses: {
+          bridgedBiomapper: "0xd1f316DFf4568F3d78970CeA59a0781d34aA690E",
+        },
+      },
     },
   },
   testnet5: {
@@ -147,6 +156,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      arbitrum: {
+        displayName: "Arbitrum One Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -164,4 +179,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "hyperliquid",
   "story",
   "janction",
+  "arbitrum",
 ]);
