@@ -37,6 +37,9 @@ export const bridgedChains = {
   manta: {
     generalDisplayName: "Manta",
   },
+  scroll: {
+    generalDisplayName: "Scroll",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -103,6 +106,12 @@ export const stages = {
         displayName: "Manta Pacific Mainnet",
         addresses: {
           bridgedBiomapper: "0x892Eb922dD2795d790a43E1c052A3936D564C7DB",
+        },
+      },
+      scroll: {
+        displayName: "Scroll",
+        addresses: {
+          bridgedBiomapper: "0xD53aE65f17dc16DF84Cf6ff5Ac44cF1d16d534Eb",
         },
       },
     },
@@ -177,6 +186,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      scroll: {
+        displayName: "Scroll Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -196,4 +211,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "janction",
   "arbitrum",
   "manta",
+  "scroll",
 ]);
