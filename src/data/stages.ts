@@ -34,6 +34,9 @@ export const bridgedChains = {
   arbitrum: {
     generalDisplayName: "Arbitrum One",
   },
+  nibiru: {
+    generalDisplayName: "Nibiru",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -94,6 +97,12 @@ export const stages = {
         displayName: "Arbitrum One",
         addresses: {
           bridgedBiomapper: "0xd1f316DFf4568F3d78970CeA59a0781d34aA690E",
+        },
+      },
+      nibiru: {
+        displayName: "Nibiru Cataclysm-1",
+        addresses: {
+          bridgedBiomapper: "0x541D5d8162cda504a26084330EBcf9404039e4c1",
         },
       },
     },
@@ -162,6 +171,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      nibiru: {
+        displayName: "Nibiru Testnet Testnet-2",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -180,4 +195,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "story",
   "janction",
   "arbitrum",
+  "nibiru",
 ]);
