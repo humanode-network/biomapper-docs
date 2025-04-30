@@ -40,6 +40,9 @@ export const bridgedChains = {
   scroll: {
     generalDisplayName: "Scroll",
   },
+  hemi: {
+    generalDisplayName: "Hemi",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -112,6 +115,12 @@ export const stages = {
         displayName: "Scroll",
         addresses: {
           bridgedBiomapper: "0xD53aE65f17dc16DF84Cf6ff5Ac44cF1d16d534Eb",
+        },
+      },
+      hemi: {
+        displayName: "Hemi",
+        addresses: {
+          bridgedBiomapper: "0x4bC11D5B880AfCF2B817d77dBb73875105CfcE1b",
         },
       },
     },
@@ -192,6 +201,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      hemi: {
+        displayName: "Hemi Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -212,4 +227,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "arbitrum",
   "manta",
   "scroll",
+  "hemi",
 ]);
