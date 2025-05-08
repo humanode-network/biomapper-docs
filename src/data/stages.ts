@@ -43,6 +43,9 @@ export const bridgedChains = {
   hemi: {
     generalDisplayName: "Hemi",
   },
+  nibiru: {
+    generalDisplayName: "Nibiru",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -121,6 +124,12 @@ export const stages = {
         displayName: "Hemi",
         addresses: {
           bridgedBiomapper: "0x4bC11D5B880AfCF2B817d77dBb73875105CfcE1b",
+        },
+      },
+      nibiru: {
+        displayName: "Nibiru Cataclysm-1",
+        addresses: {
+          bridgedBiomapper: "0x541D5d8162cda504a26084330EBcf9404039e4c1",
         },
       },
     },
@@ -207,6 +216,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      nibiru: {
+        displayName: "Nibiru Testnet Testnet-2",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -228,4 +243,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "manta",
   "scroll",
   "hemi",
+  "nibiru",
 ]);
