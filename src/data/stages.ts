@@ -49,6 +49,9 @@ export const bridgedChains = {
   unichain: {
     generalDisplayName: "Unichain",
   },
+  linea: {
+    generalDisplayName: "Linea",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -139,6 +142,12 @@ export const stages = {
         displayName: "Unichain",
         addresses: {
           bridgedBiomapper: "0x32C96D0BE22b2d705bfc5Bcbeea31358857fD4d9",
+        },
+      },
+      linea: {
+        displayName: "Linea",
+        addresses: {
+          bridgedBiomapper: "0x2F77Cf91D9EB917aA94AC5868b443f524f7523C5",
         },
       },
     },
@@ -237,6 +246,12 @@ export const stages = {
           bridgedBiomapper: "0xa6a8Ad302c5fF23ccA2895eae8BA938CEa338896",
         },
       },
+      linea: {
+        displayName: "Linea Testnet Sepolia",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -260,4 +275,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "hemi",
   "nibiru",
   "unichain",
+  "linea",
 ]);
