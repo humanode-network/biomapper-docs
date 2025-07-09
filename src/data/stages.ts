@@ -67,6 +67,9 @@ export const bridgedChains = {
   ontology: {
     generalDisplayName: "Ontology",
   },
+  aurora: {
+    generalDisplayName: "Aurora",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -193,6 +196,12 @@ export const stages = {
         displayName: "Ontology",
         addresses: {
           bridgedBiomapper: "0x3833338Cd2eDd30F0A794D41632C1A3b3FeD0C13",
+        },
+      },
+      aurora: {
+        displayName: "Aurora",
+        addresses: {
+          bridgedBiomapper: "0xdFA034438Bb6F6dF349006D1036c842ea4A95085",
         },
       },
     },
@@ -327,6 +336,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      aurora: {
+        displayName: "Aurora Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -356,4 +371,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "vanar",
   "botanix",
   "ontology",
+  "aurora",
 ]);
