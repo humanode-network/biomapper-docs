@@ -52,6 +52,9 @@ export const bridgedChains = {
   linea: {
     generalDisplayName: "Linea",
   },
+  metis: {
+    generalDisplayName: "Metis",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -148,6 +151,12 @@ export const stages = {
         displayName: "Linea",
         addresses: {
           bridgedBiomapper: "0x2F77Cf91D9EB917aA94AC5868b443f524f7523C5",
+        },
+      },
+      metis: {
+        displayName: "Metis Andromeda Mainnet",
+        addresses: {
+          bridgedBiomapper: "0x7Bc956A55ec813447142E1183974bE2e496Ee444",
         },
       },
     },
@@ -252,6 +261,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      metis: {
+        displayName: "Metis Testnet (Sepolia)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -276,4 +291,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "nibiru",
   "unichain",
   "linea",
+  "metis",
 ]);
