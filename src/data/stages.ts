@@ -55,6 +55,9 @@ export const bridgedChains = {
   metis: {
     generalDisplayName: "Metis",
   },
+  superseed: {
+    generalDisplayName: "Superseed",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -157,6 +160,12 @@ export const stages = {
         displayName: "Metis Andromeda Mainnet",
         addresses: {
           bridgedBiomapper: "0x7Bc956A55ec813447142E1183974bE2e496Ee444",
+        },
+      },
+      superseed: {
+        displayName: "Superseed",
+        addresses: {
+          bridgedBiomapper: "0x1e9215AD1AC1E8875921236ce5f8Df55f13c015c",
         },
       },
     },
@@ -267,6 +276,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      superseed: {
+        displayName: "Superseed Testnet (Sepolia)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -292,4 +307,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "unichain",
   "linea",
   "metis",
+  "superseed",
 ]);
