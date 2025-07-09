@@ -55,6 +55,9 @@ export const bridgedChains = {
   metis: {
     generalDisplayName: "Metis",
   },
+  og: {
+    generalDisplayName: "og",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -159,6 +162,7 @@ export const stages = {
           bridgedBiomapper: "0x7Bc956A55ec813447142E1183974bE2e496Ee444",
         },
       },
+      og: null,
     },
   },
   testnet5: {
@@ -267,6 +271,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      og: {
+        displayName: "0G Testnet (Galileo)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -292,4 +302,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "unichain",
   "linea",
   "metis",
+  "og",
 ]);
