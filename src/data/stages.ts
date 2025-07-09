@@ -55,6 +55,9 @@ export const bridgedChains = {
   metis: {
     generalDisplayName: "Metis",
   },
+  flowevm: {
+    generalDisplayName: "Flow EVM",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -157,6 +160,12 @@ export const stages = {
         displayName: "Metis Andromeda Mainnet",
         addresses: {
           bridgedBiomapper: "0x7Bc956A55ec813447142E1183974bE2e496Ee444",
+        },
+      },
+      flowevm: {
+        displayName: "Flow EVM",
+        addresses: {
+          bridgedBiomapper: "0x0BBCcD3307Ef8B0c80edD8bB8ea5679597E32Dc8",
         },
       },
     },
@@ -267,6 +276,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      flowevm: {
+        displayName: "Flow EVM Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -292,4 +307,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "unichain",
   "linea",
   "metis",
+  "flowevm",
 ]);
