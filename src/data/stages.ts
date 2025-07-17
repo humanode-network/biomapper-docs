@@ -58,6 +58,9 @@ export const bridgedChains = {
   soneium: {
     generalDisplayName: "Soneium",
   },
+  vanar: {
+    generalDisplayName: "Vanar",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -166,6 +169,12 @@ export const stages = {
         displayName: "Soneium",
         addresses: {
           bridgedBiomapper: "0x5BeC6Db8Aaa8F1Ad3dDD93BDeC910E7Ed8Eb15f0",
+        },
+      },
+      vanar: {
+        displayName: "Vanar",
+        addresses: {
+          bridgedBiomapper: "0xfbE6d17c5c4d8fa92A932A6d269f4e43f0Fc67Dc",
         },
       },
     },
@@ -282,6 +291,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      vanar: {
+        displayName: "Vanar Testnet (Vanguard)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -308,4 +323,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "linea",
   "metis",
   "soneium",
+  "vanar",
 ]);
