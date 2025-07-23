@@ -61,6 +61,9 @@ export const bridgedChains = {
   vanar: {
     generalDisplayName: "Vanar",
   },
+  botanix: {
+    generalDisplayName: "Botanix",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -175,6 +178,12 @@ export const stages = {
         displayName: "Vanar",
         addresses: {
           bridgedBiomapper: "0xfbE6d17c5c4d8fa92A932A6d269f4e43f0Fc67Dc",
+        },
+      },
+      botanix: {
+        displayName: "Botanix",
+        addresses: {
+          bridgedBiomapper: "0x7D65e3f5aEcaC155037da724f84918F2ec8487C5",
         },
       },
     },
@@ -297,6 +306,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      botanix: {
+        displayName: "Botanix Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -324,4 +339,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "metis",
   "soneium",
   "vanar",
+  "botanix",
 ]);
