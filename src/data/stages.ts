@@ -73,6 +73,9 @@ export const bridgedChains = {
   xrpl: {
     generalDisplayName: "XRPL EVM",
   },
+  etherlink: {
+    generalDisplayName: "Etherlink",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -211,6 +214,12 @@ export const stages = {
         displayName: "XRPL EVM",
         addresses: {
           bridgedBiomapper: "0x56F1E7454765e480fF7dd0Dc439c29a8C8621b52",
+        },
+      },
+      etherlink: {
+        displayName: "Etherlink",
+        addresses: {
+          bridgedBiomapper: "0xBeA0a63fE2B0E5fFec54D702D0792d3066ff37Da",
         },
       },
     },
@@ -357,6 +366,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      etherlink: {
+        displayName: "Etherlink Testnet (Ghostnet)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -388,4 +403,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "ontology",
   "aurora",
   "xrpl",
+  "etherlink",
 ]);
