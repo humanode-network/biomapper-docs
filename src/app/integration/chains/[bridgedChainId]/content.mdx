@@ -1,4 +1,4 @@
-import { Code } from "nextra/components";
+import { Code, Tabs, Callout } from "nextra/components";
 
 import { bridgedChains, stages, mainStageId } from "../../../../data/stages";
 import { MDX } from "../../../../components/mdx";
@@ -48,7 +48,136 @@ the <DataLink link="biomapperSdkDocs">Biomapper SDK Docs</DataLink>.
 
 Integrating on the frontend is as simple as adding a link to the Biomapper App.
 
-In general, you can always find the right URL at the [contract addresses] page.
+<Callout type="info">
+  Ignoring [generations](/generations) could lead to Sybil attacks.
+</Callout>
+
+Here is an example of how to check if a wallet is biomapped in the last generation
+known to Biomapper on {props.bridgedChain.generalDisplayName}.
+
+#### Get contract ABI
+
+The proper way is to create ABI from `IBridgedBiomapperRead` interface in `@biomapper-sdk/core`.
+
+Alternatively you can use these 2 functions:
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers v6']}>
+>
+  <Tabs.Tab>
+    ```ts
+    const biomapperAbi = parseAbi([
+      "function generationsHead() external view returns (uint256)",
+      "function lookupBiomappingPtr(address account, uint256 generationPtr) external view returns (uint256)",
+    ]);
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```ts
+    const biomapperAbi = [
+      "function generationsHead() external view returns (uint256)",
+      "function lookupBiomappingPtr(address account, uint256 generationPtr) external view returns (uint256)",
+    ];
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+#### Get contract address
+
+Look up the [contract addresses] page for full contract addresses info.
+
+<If condition={stages[mainStageId].bridged[props.bridgedChainId] !== null}>
+
+For the Biomapper on {props.bridgedChain.generalDisplayName} Mainnet:
+
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = '{stages[mainStageId].bridged[props.bridgedChainId]?.addresses.bridgedBiomapper}';</MDX.code>
+</MDX.pre>
+
+</If>
+
+For the Biomapper on {stages["testnet5"].bridged[props.bridgedChainId]?.displayName}:
+
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = '{stages["testnet5"].bridged[props.bridgedChainId]?.addresses.bridgedBiomapper}';</MDX.code>
+</MDX.pre>
+
+#### Get current biomapping generation
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers 6']}>
+>
+  <Tabs.Tab>
+    See more about `readContract` function on https://viem.sh/docs/contract/readContract.
+
+    ```ts
+    const lastKnownGeneration = await publicClient.readContract({
+      address: biomapperContractAddress,
+      abi: biomapperAbi,
+      functionName: "generationsHead",
+    });
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    See more about how to read Ethers contracts on https://docs.ethers.org/v6/getting-started/#cid_56.
+
+    ```ts
+    // Prepare re-usable contract definition.
+    const biomapperContract = new Contract(biomapperContractAddress, biomapperAbi, provider);
+
+    const lastKnownGeneration = await generationsHead();
+
+    ```
+
+  </Tabs.Tab>
+</Tabs>
+
+#### Get biomapping status in the last known generation
+
+To get biomapping status for some address `addressToCheck` in the last known generation
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers 6']}>
+>
+  <Tabs.Tab>
+    ```ts
+    const biomappingPtrInLastKnownGeneration = await publicClient.readContract({
+      address: biomapperContractAddress,
+      abi: biomapperAbi,
+      functionName: "lookupBiomappingPtr",
+      args: [addressToCheck, lastKnownGeneration],
+    });
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```ts
+    const biomappingPtrInLastKnownGeneration =
+      await biomapperContract.lookupBiomappingPtr(
+        addressToCheck,
+        lastKnownGeneration
+      );
+
+    ```
+
+  </Tabs.Tab>
+</Tabs>
+
+`biomappingPtrInLastKnownGeneration` is the block number on
+Humanode Testnet 5 <If condition={stages[mainStageId].bridged[props.bridgedChainId] !== null}>(or Humanode Mainnet) </If>
+of biomapping tx in the last known generation for specified address,
+or zero if such address is not biomapped.
+
+```ts
+const biomappingStatus = biomappingPtrInLastKnownGeneration !== 0n;
+```
 
 ## Rollout
 
