@@ -2,8 +2,20 @@
 title: How to Get eHMND Tokens for Biomapping Transaction Fees
 ---
 
-import { A } from "../../../components/mdx";
-import links, { tradeLinks } from "../../../data/links";
+import { MDX, A } from "../../../components/mdx";
+import links, { tradeLinks, bridgeLinks } from "../../../data/links";
+import { Steps, Tabs } from "nextra/components";
+
+export const cexDisplay = {
+  bingx: "BingX",
+  kucoin: "KuCoin",
+  simpleswap: "SimpleSwap",
+  coinex: "CoinEx",
+};
+
+export const humanodeDexDisplay = {
+  if: "Impossible Finance",
+};
 
 # How to Get eHMND Tokens for Biomapping Transaction Fees
 
@@ -11,26 +23,31 @@ import links, { tradeLinks } from "../../../data/links";
 
 To cover the price and network fees for the Biomapping you'll need eHMND tokens.
 
-There are two ways to get them:
+There are multiple ways to get them:
 
 - [Option 1](#option-1) - buy HMND from a Centralized Exchange (CEX) & swap.
-- [Option 2](#option-2) - buy HMND on BitMart & Withdraw Directly as eHMND.
+- [Option 2](#option-2) - buy WeHMND on DEX on other chain and port to Humanode.
+- [Option 3](#option-3) - port USDC or other token to Humanode and swap to WeHMND.
 
 ### Option 1
+
+<Steps>
 
 #### Buy HMND tokens from a supported centralized exchange
 
 Exchanges where you can buy HMND:
 
-- <A href={tradeLinks.bingx}>BingX</A>
-- <A href={tradeLinks.bitmart}>BitMart</A>
-- <A href={tradeLinks.kucoin}>KuCoin</A>
-- <A href={tradeLinks.simpleswap}>SimpleSwap</A>
-- <A href={tradeLinks.coinex}>CoinEx</A>
+<MDX.ul>
+  {Object.keys(cexDisplay).map((id) => (
+    <MDX.li key={id}>
+      <A href={tradeLinks[id]}>{cexDisplay[id]}</A>
+    </MDX.li>
+  ))}
+</MDX.ul>
 
 #### Transfer HMND to your Polkadot wallet or Talisman wallet
 
-Use the <A href={links.humanodeSwap}>Humanode internal swap</A>
+Use the <A href={links.humanodeSwap}>Humanode Native to EVM swap</A>
 to convert HMND to eHMND.
 
 1. Enter your Polkadot/Talisman wallet address starting with `hm...` in
@@ -46,14 +63,67 @@ to convert HMND to eHMND.
 3. Confirm the swap.
    Your eHMND will be sent to your EVM wallet.
 
+</Steps>
+
 ### Option 2
 
-#### Buy HMND on BitMart & Withdraw Directly as eHMND
+<Steps>
 
-Buy HMND on <A href={tradeLinks.bingx}>BitMart</A>.
+#### Buy WeHMND on other supported chain
 
-Withdraw HMND directly to your EVM wallet (Metamask or Talisman) that you
-are using to Biomap.
+Supported chains:
 
-This method is quicker since BitMart allows direct withdrawals to an EVM wallet,
-eliminating the need for an internal swap.
+<Tabs storageKey="wehmnd-chain" items={["Arbitrum"]}>
+  <Tabs.Tab id="arbitrum">
+    <span>
+      On Arbitrum, buy the WeHMND via <A href={tradeLinks.uniswapArbitrumWeth}>Uniswap</A> pair.
+
+      You can also use <A href={links.squidrouter}>Squid Router</A> to facilitate the brdiging of your tokens from
+      yet another chain to Arbitrum.
+    </span>
+
+  </Tabs.Tab>
+</Tabs>
+
+#### Port the WeHMND to Humanode via Chainport
+
+<Tabs storageKey="wehmnd-chain" items={["Arbitrum"]}>
+  <Tabs.Tab id="arbitrum">
+    <span>
+      Use <A href={bridgeLinks.chainport}>Chainport</A>
+      to port WeHMND Arbitrum on to eHMND on Humanode.
+    </span>
+  </Tabs.Tab>
+</Tabs>
+
+</Steps>
+
+### Option 3
+
+<Steps>
+
+#### Check pairs with enough liquidity at DEX on Humanode
+
+Check the following exchanges for potential pairs you would be able to use:
+
+<MDX.ul>
+  {Object.keys(humanodeDexDisplay).map((id) => (
+    <MDX.li key={id}>
+      <A href={tradeLinks[id]}>{humanodeDexDisplay[id]}</A>
+    </MDX.li>
+  ))}
+</MDX.ul>
+
+For example: USDC to WeHMND.
+
+#### Port USDC (or other token) to Humanode and swap to eHMND
+
+Check <A href={bridgeLinks.chainport}>Chainport</A> for the supported tokeans, and
+port USDC (or other token) from the chain where you have it to Humanode.
+
+#### Swap the token to WeHMND
+
+Use the pair and the exchange you have chosen on [step 1](#check-pairs-with-enough-liquidity-at-dex-on-humanode) to swap your token
+to WeHMND on the Humanode chain.
+
+</Steps>
