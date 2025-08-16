@@ -22,6 +22,12 @@ export const tradeLinks = {
   kucoin: "https://link.humanode.io/trade/kucoin",
   simpleswap: "https://link.humanode.io/trade/simpleswap",
   coinex: "https://link.humanode.io/trade/coinex",
+  if: "https://link.humanode.io/trade/impossible-finance",
+  uniswapArbitrumWeth: "https://link.humanode.io/trade/uniswap/arbitrum/weth",
+} as const satisfies Record<string, `https://${string}`>;
+
+export const bridgeLinks = {
+  chainport: "https://link.humanode.io/bridge/chainport",
 } as const satisfies Record<string, `https://${string}`>;
 
 const humanodeSwap =
@@ -30,6 +36,8 @@ const polkadotExt = "https://polkadot.js.org/extension";
 const talismanWallet = "https://link.humanode.io/wallets/talisman";
 
 const humanodeTestnet5FaucetBot = "https://t.me/HumanodeTestnet5FaucetBot";
+
+const squidrouter = "https://app.squidrouter.com/";
 
 const links = {
   chat,
@@ -45,6 +53,7 @@ const links = {
   polkadotExt,
   talismanWallet,
   humanodeTestnet5FaucetBot,
+  squidrouter,
 } as const satisfies Record<string, `https://${string}`>;
 
 export default links;
