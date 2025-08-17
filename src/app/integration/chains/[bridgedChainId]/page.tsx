@@ -1,5 +1,5 @@
 import React from "react";
-import { NextraMetadata } from "nextra";
+import { $NextraMetadata } from "nextra";
 import { MDX } from "../../../../components/mdx";
 import { bridgedChains } from "../../../../data/stages";
 import { BridgedChainId } from "../../../../data/stages.derived";
@@ -26,8 +26,9 @@ export default async function Page({
 
   const metadataOverride = {
     ...metadata,
-    description: `Integrating with Humanode Biomapper on ${bridgedChain.generalDisplayName}.`,
-  } as const satisfies NextraMetadata;
+    title: `Integrating with Humanode Biomapper on ${bridgedChain.generalDisplayName}.`,
+    filePath: "",
+  } as const satisfies $NextraMetadata;
 
   return (
     <MDX.wrapper metadata={metadataOverride} toc={toc}>

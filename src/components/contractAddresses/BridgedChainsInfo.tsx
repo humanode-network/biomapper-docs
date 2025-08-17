@@ -24,7 +24,9 @@ const BridgedChainsInfo: React.FC<Props> = ({ chains }) => (
     <tbody>
       {chains.length === 0 ? (
         <Table.Tr>
-          <Table.Td colSpan={2}>Wait for announcements!</Table.Td>
+          <Table.Td /* colSpan={2} fixme: broken types at td */>
+            Wait for announcements!
+          </Table.Td>
         </Table.Tr>
       ) : (
         chains.map((info, index) => (
