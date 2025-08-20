@@ -131,7 +131,7 @@ For the Biomapper on {stages["testnet5"].bridged[props.bridgedChainId]?.displayN
     // Prepare re-usable contract definition.
     const biomapperContract = new Contract(biomapperContractAddress, biomapperAbi, provider);
 
-    const lastKnownGeneration = await generationsHead();
+    const lastKnownGeneration = await biomapperContract.generationsHead();
 
     ```
 
@@ -170,10 +170,14 @@ To get biomapping status for some address `addressToCheck` in the last known gen
   </Tabs.Tab>
 </Tabs>
 
+{/* prettier-ignore-start */}
+
 `biomappingPtrInLastKnownGeneration` is the block number on
-Humanode Testnet 5 <If condition={stages[mainStageId].bridged[props.bridgedChainId] !== null}>(or Humanode Mainnet) </If>
+<If condition={stages[mainStageId].bridged[props.bridgedChainId] !== null}>Humanode Mainnet or</If> Humanode Testnet 5
 of biomapping tx in the last known generation for specified address,
 or zero if such address is not biomapped.
+
+{/* prettier-ignore-end */}
 
 ```ts
 const biomappingStatus = biomappingPtrInLastKnownGeneration !== 0n;
