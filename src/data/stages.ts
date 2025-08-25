@@ -73,6 +73,9 @@ export const bridgedChains = {
   xrpl: {
     generalDisplayName: "XRPL EVM",
   },
+  fuse: {
+    generalDisplayName: "Fuse",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -211,6 +214,12 @@ export const stages = {
         displayName: "XRPL EVM",
         addresses: {
           bridgedBiomapper: "0x56F1E7454765e480fF7dd0Dc439c29a8C8621b52",
+        },
+      },
+      fuse: {
+        displayName: "Fuse",
+        addresses: {
+          bridgedBiomapper: "0xD244F7D8736a6D39e2E58d7af73A985372D904E8",
         },
       },
     },
@@ -357,6 +366,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      fuse: {
+        displayName: "Fuse Testnet (Sparknet)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -388,4 +403,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "ontology",
   "aurora",
   "xrpl",
+  "fuse",
 ]);
