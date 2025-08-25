@@ -73,6 +73,9 @@ export const bridgedChains = {
   xrpl: {
     generalDisplayName: "XRPL EVM",
   },
+  zircuit: {
+    generalDisplayName: "Zircuit",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -211,6 +214,12 @@ export const stages = {
         displayName: "XRPL EVM",
         addresses: {
           bridgedBiomapper: "0x56F1E7454765e480fF7dd0Dc439c29a8C8621b52",
+        },
+      },
+      zircuit: {
+        displayName: "Zircuit",
+        addresses: {
+          bridgedBiomapper: "0xc1eE6EDc188c5339b5180740f2c83889560E1648",
         },
       },
     },
@@ -357,6 +366,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      zircuit: {
+        displayName: "Zircuit Garfield Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -388,4 +403,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "ontology",
   "aurora",
   "xrpl",
+  "zircuit",
 ]);
