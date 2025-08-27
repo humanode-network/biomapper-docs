@@ -4,6 +4,7 @@ title: Integrating with Humanode Biomapper on Humanode.
 
 import { Tabs, Callout } from "nextra/components";
 import { stages } from "../../../data/stages";
+import { MDX } from "../../../components/mdx";
 
 # Humanode
 
@@ -57,15 +58,17 @@ Look up the [contract addresses](/contract-addresses) page for `BiomapperLog` co
 
 For the Biomapper on Humanode Mainnet:
 
-```ts
-const biomapperContractAddress = "0x877Bb6c2d22918563c4688e68b62c2F678Cc0BFD";
-```
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = "{stages.mainnet.humanode.addresses.biomapperLog}";</MDX.code>
+</MDX.pre>
 
 For the Biomapper on Humanode Testnet 5:
 
-```ts
-const biomapperContractAddress = "0x3f2B3E471b207475519989369d5E4F2cAbd0A39F";
-```
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = "{stages.testnet5.humanode.addresses.biomapperLog}";</MDX.code>
+</MDX.pre>
 
 ### Get current biomapping generation
 
