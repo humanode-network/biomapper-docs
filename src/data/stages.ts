@@ -76,6 +76,9 @@ export const bridgedChains = {
   etherlink: {
     generalDisplayName: "Etherlink",
   },
+  wanchain: {
+    generalDisplayName: "Wanchain",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -220,6 +223,12 @@ export const stages = {
         displayName: "Etherlink",
         addresses: {
           bridgedBiomapper: "0xBeA0a63fE2B0E5fFec54D702D0792d3066ff37Da",
+        },
+      },
+      wanchain: {
+        displayName: "Wanchain",
+        addresses: {
+          bridgedBiomapper: "0x2eBd6c739e5fF407C933C88644C610e1c85856fA",
         },
       },
     },
@@ -372,6 +381,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      wanchain: {
+        displayName: "Wanchain Testnet",
+        addresses: {
+          bridgedBiomapper: "0x5931A7F6eC88Dbefc51e53a670054c8BFE7df993",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -404,4 +419,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "aurora",
   "xrpl",
   "etherlink",
+  "wanchain",
 ]);
