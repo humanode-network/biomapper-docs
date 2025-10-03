@@ -82,6 +82,9 @@ export const bridgedChains = {
   fuse: {
     generalDisplayName: "Fuse",
   },
+  "monad-testnet": {
+    generalDisplayName: "Monad Testnet",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -238,6 +241,12 @@ export const stages = {
         displayName: "Fuse",
         addresses: {
           bridgedBiomapper: "0xD244F7D8736a6D39e2E58d7af73A985372D904E8",
+        },
+      },
+      "monad-testnet": {
+        displayName: "Monad Testnet",
+        addresses: {
+          bridgedBiomapper: "0x5931A7F6eC88Dbefc51e53a670054c8BFE7df993",
         },
       },
     },
@@ -402,6 +411,7 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      "monad-testnet": null,
     },
   },
 } as const satisfies StagesShape;
@@ -436,4 +446,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "etherlink",
   "wanchain",
   "fuse",
+  "monad-testnet",
 ]);
