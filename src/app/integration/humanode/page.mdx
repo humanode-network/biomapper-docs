@@ -1,0 +1,180 @@
+---
+title: Integrating with Humanode Biomapper on Humanode.
+---
+
+import { Tabs, Callout } from "nextra/components";
+import { stages } from "../../../data/stages";
+import { MDX } from "../../../components/mdx";
+
+# Humanode
+
+Integrating with Humanode Biomapper on Humanode network.
+
+<Callout type="info">
+  Ignoring [generations](/generations) could lead to Sybil attacks.
+</Callout>
+
+This page describes integration with Biomapper on Humanode chain only.
+To integrate with Biomapper on other chains check [Bridging page](/bridging)
+and `Frontend` section of a [bridged chain](/#bridged-chains).
+
+## Simple Example
+
+Here is an example of how to check if a wallet is biomapped in the last generation
+on Humanode Biomapper.
+
+### Get contract ABI
+
+The proper way is to create ABI from `IBiomapperLogRead` interface in `@biomapper-sdk/core`.
+
+Alternatively you can use these 2 functions:
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers v6']}>
+>
+  <Tabs.Tab>
+    ```ts
+    const biomapperAbi = parseAbi([
+      "function generationsHead() external view returns (uint256)",
+      "function generationBiomapping(address account, uint256 generationPtr) external view returns (uint256)",
+    ]);
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```ts
+    const biomapperAbi = [
+      "function generationsHead() external view returns (uint256)",
+      "function generationBiomapping(address account, uint256 generationPtr) external view returns (uint256)",
+    ];
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Get contract address
+
+Look up the [contract addresses](/contract-addresses) page for `BiomapperLog` contract address info.
+
+For the Biomapper on Humanode Mainnet:
+
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = "{stages.mainnet.humanode.addresses.biomapperLog}";</MDX.code>
+</MDX.pre>
+
+For the Biomapper on Humanode Testnet 5:
+
+{/* prettier-ignore */}
+<MDX.pre>
+  <MDX.code>  const biomapperContractAddress = "{stages.testnet5.humanode.addresses.biomapperLog}";</MDX.code>
+</MDX.pre>
+
+### Get current biomapping generation
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers 6']}>
+>
+  <Tabs.Tab>
+    See more about `readContract` function on https://viem.sh/docs/contract/readContract.
+
+    ```ts
+    const lastGeneration = await publicClient.readContract({
+      address: biomapperContractAddress,
+      abi: biomapperAbi,
+      functionName: "generationsHead",
+    });
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    See more about how to read Ethers contracts on https://docs.ethers.org/v6/getting-started/#cid_56.
+
+    ```ts
+    // Prepare re-usable contract definition.
+    const biomapperContract = new Contract(biomapperContractAddress, biomapperAbi, provider);
+
+    const lastGeneration = await biomapperContract.generationsHead();
+
+    ```
+
+  </Tabs.Tab>
+</Tabs>
+
+### Get biomapping status in the last generation
+
+To get biomapping status for some address `addressToCheck` in the last generation
+
+<Tabs
+  storageKey="web3lib"
+  items={['Viem', 'Ethers 6']}>
+>
+  <Tabs.Tab>
+    ```ts
+    const biomappingPtrInLastGeneration = await publicClient.readContract({
+      address: biomapperContractAddress,
+      abi: biomapperAbi,
+      functionName: "generationBiomapping",
+      args: [addressToCheck, lastGeneration],
+    });
+    ```
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```ts
+    const biomappingPtrInLastGeneration =
+      await biomapperContract.generationBiomapping(
+        addressToCheck,
+        lastGeneration
+      );
+
+    ```
+
+  </Tabs.Tab>
+</Tabs>
+
+`biomappingPtrInLastGeneration` is the block number on
+Humanode Mainnet (or Humanode Testnet 5)
+of biomapping tx in the last generation for specified address,
+or zero if such address is not biomapped.
+
+```ts
+const biomappingStatus = biomappingPtrInLastGeneration !== 0n;
+```
+
+## Alternative way
+
+To get biomapping status in an example above 2 functions are used:
+
+1. `generationsHead` to get block number of the last generation change tx;
+2. `generationBiomapping` to get block number of biomapping tx in the last generation.
+
+The other way to get the status is:
+
+1. the same `generationsHead`;
+2. `biomappingsHead` to get block number of the last biomapping tx for a specified account;
+3. compare these block numbers.
+
+The ABI will be
+
+```json
+[
+  "function generationsHead() external view returns (uint256)",
+  "function biomappingsHead(address account) external view returns (uint256)"
+]
+```
+
+In this case `biomappingStatus` will be calculated like this:
+
+```ts
+const biomappingStatus = lastBiomapping > lastGeneration;
+```
+
+## Generations
+
+While this example can be helpful to show if the account is biomapped now,
+in real dApps the generations should be taken into account.
+
+A restriction to a specific generation only could be sufficient
+to prevent Sybil attacks.
