@@ -1,5 +1,5 @@
 import { Folder, PageMapItem } from "nextra";
-import { bridgedChainsDisplayOrder } from "../../../data/stages";
+import { bridgedChains, bridgedChainsDisplayOrder } from "../../../data/stages";
 import { convertToPageMap, normalizePageMap } from "nextra/page-map";
 
 export const { pageMap: rawPageMap, mdxPages } = convertToPageMap({
@@ -12,6 +12,9 @@ export const { pageMap: rawPageMap, mdxPages } = convertToPageMap({
 export const pageMap = bridgedChainsDisplayOrder.map((bridgedChainId) => ({
   name: bridgedChainId,
   route: `/integration/chains/${bridgedChainId}`,
+  frontMatter: {
+    title: bridgedChains[bridgedChainId].generalDisplayName,
+  },
 }));
 
 const findFolder = (items: PageMapItem[], name: string): Folder | undefined =>
