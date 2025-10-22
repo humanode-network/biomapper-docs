@@ -82,6 +82,9 @@ export const bridgedChains = {
   "monad-testnet": {
     generalDisplayName: "Monad Testnet",
   },
+  ethereum: {
+    generalDisplayName: "Ethereum",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -245,6 +248,12 @@ export const stages = {
           bridgedBiomapper: "0x5931A7F6eC88Dbefc51e53a670054c8BFE7df993",
         },
       },
+      ethereum: {
+        displayName: "Ethereum",
+        addresses: {
+          bridgedBiomapper: "0x8AeF4C03D8CcA88387b9228869FdDEeb40eE5926",
+        },
+      },
     },
   },
   testnet5: {
@@ -402,6 +411,12 @@ export const stages = {
         },
       },
       "monad-testnet": null,
+      ethereum: {
+        displayName: "Ethereum Testnet (Sepolia)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -436,4 +451,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "wanchain",
   "fuse",
   "monad-testnet",
+  "ethereum",
 ]);
