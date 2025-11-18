@@ -88,6 +88,9 @@ export const bridgedChains = {
   somnia: {
     generalDisplayName: "Somnia",
   },
+  bsc: {
+    generalDisplayName: "BNB Smart Chain",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -263,6 +266,12 @@ export const stages = {
           bridgedBiomapper: "0x0c7A4175d278fe569B65Ce82EA00a0cC901873AB",
         },
       },
+      bsc: {
+        displayName: "BNB Smart Chain",
+        addresses: {
+          bridgedBiomapper: "0x941d38859dAF3dD160B2a63f8DC24c96cb5B6Ce9",
+        },
+      },
     },
   },
   testnet5: {
@@ -432,6 +441,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      bsc: {
+        displayName: "BNB Smart Chain Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -468,4 +483,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "monad-testnet",
   "ethereum",
   "somnia",
+  "bsc",
 ]);
