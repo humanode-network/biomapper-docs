@@ -91,6 +91,9 @@ export const bridgedChains = {
   bsc: {
     generalDisplayName: "BNB Smart Chain",
   },
+  shardeum: {
+    generalDisplayName: "Shardeum",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -272,6 +275,12 @@ export const stages = {
           bridgedBiomapper: "0x941d38859dAF3dD160B2a63f8DC24c96cb5B6Ce9",
         },
       },
+      shardeum: {
+        displayName: "Shardeum",
+        addresses: {
+          bridgedBiomapper: "0x2D64c22b7Ae8aa04f32c19d45bBf006e1E9FF0D1",
+        },
+      },
     },
   },
   testnet5: {
@@ -447,6 +456,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      shardeum: {
+        displayName: "Shardeum Testnet",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -484,4 +499,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "ethereum",
   "somnia",
   "bsc",
+  "shardeum",
 ]);
