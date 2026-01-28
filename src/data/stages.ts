@@ -94,6 +94,9 @@ export const bridgedChains = {
   shardeum: {
     generalDisplayName: "Shardeum",
   },
+  polygon: {
+    generalDisplayName: "Polygon",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -281,6 +284,12 @@ export const stages = {
           bridgedBiomapper: "0x2D64c22b7Ae8aa04f32c19d45bBf006e1E9FF0D1",
         },
       },
+      polygon: {
+        displayName: "Polygon",
+        addresses: {
+          bridgedBiomapper: "0x435Fe427fE2818ab8899e0F8979c92403638F391",
+        },
+      },
     },
   },
   testnet5: {
@@ -462,6 +471,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      polygon: {
+        displayName: "Polygon Testnet (Amoy)",
+        addresses: {
+          bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -500,4 +515,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "somnia",
   "bsc",
   "shardeum",
+  "polygon",
 ]);
