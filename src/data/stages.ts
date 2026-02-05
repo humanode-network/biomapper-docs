@@ -97,6 +97,9 @@ export const bridgedChains = {
   polygon: {
     generalDisplayName: "Polygon",
   },
+  megaeth: {
+    generalDisplayName: "MegaETH",
+  },
 } as const satisfies BridgedChainsShape;
 
 export const stages = {
@@ -290,6 +293,12 @@ export const stages = {
           bridgedBiomapper: "0x435Fe427fE2818ab8899e0F8979c92403638F391",
         },
       },
+      megaeth: {
+        displayName: "MegaETH Frontier",
+        addresses: {
+          bridgedBiomapper: "0x7fc7FbdF67E0a1418D3197E4eE768D3c1b5F9Dee",
+        },
+      },
     },
   },
   testnet5: {
@@ -477,6 +486,12 @@ export const stages = {
           bridgedBiomapper: "0x16F2a7AC67B6aC1E57dD5528A24b1fC689902Be2",
         },
       },
+      megaeth: {
+        displayName: "MegaETH Testnet (Timothy)",
+        addresses: {
+          bridgedBiomapper: "0x5931A7F6eC88Dbefc51e53a670054c8BFE7df993",
+        },
+      },
     },
   },
 } as const satisfies StagesShape;
@@ -516,4 +531,5 @@ export const bridgedChainsDisplayOrder = defineBridgedChainIdsOrder([
   "bsc",
   "shardeum",
   "polygon",
+  "megaeth",
 ]);
