@@ -9,6 +9,8 @@ export default {
     href: links.biomapperSdkDocs,
   },
 
+  humanode: "Humanode",
+
   chains: {
     // This is not really a separator, it get overwritten by our hacks
     // at `pageMap.ts`.
